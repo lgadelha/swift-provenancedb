@@ -1,0 +1,10 @@
+2009-03-16 17:31:50,123+0100 INFO  Loader regress-r2292.swift: source file is new. Recompiling.
+2009-03-16 17:31:50,796+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:31:50,805+0100 INFO  VariableScope New scope 10258369 with no parent.
+2009-03-16 17:31:51,842+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:31:51,843+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:31:51,995+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:31:52,611+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:31:52,612+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1731-memz1697
+2009-03-16 17:31:52,642+0100 DEBUG Loader Swift finished with no errors

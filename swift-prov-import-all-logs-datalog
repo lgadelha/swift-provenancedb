@@ -1,0 +1,82 @@
+#!/bin/bash
+
+PROVDIR=$(dirname $0)
+pushd $PROVDIR
+PROVDIR=$(pwd)
+popd
+
+# we need to keep this out of the log-proceesing dir because import
+# of individual runs will clean other files.
+
+source $PROVDIR/etc/provenance.config
+export PATH=$PROVDIR:$PATH
+
+# this generates a file with tuples like:
+# <starttime> <swift version> <logfilename> 
+# This is where Swift's version is collected.
+swift-plot-log $LOGREPO everylog-vs-versions.data
+
+if [ "$?" != "0" ]; then
+    echo swift-plot-log failed when building everylog-vs-versions.data
+    exit 1
+fi
+
+# TODO better tmp handling that always using the same name in a shared
+# directory
+cp everylog-vs-versions.data /tmp/
+
+echo first commandline param is $1
+if [ "$1" == "rebuild" ]; then
+    echo CLEANING DATABASE
+    cat $PROVDIR/provenancedb-rules.datalog > provenancedb.datalog
+fi
+
+while read start version filename; do
+    
+    export IDIR=$(echo $filename | sed 's/\.log$/.d/')
+    echo IDIR=$IDIR
+    if [ $version -ge 1538 ]; then
+	echo -n "Log: $filename ... "
+	
+	EXISTING=$(grep "hasLogFilename('$filename')." provenancedb.datalog)
+	
+	if [ -z "$EXISTING" ];  then
+	    PROV_ENABLED=$(grep provenanceid $filename | wc -l)
+	    if [ $PROV_ENABLED -gt 0 ]; then
+		echo IMPORTING
+		
+		if grep --silent "Loader Swift finished with no errors" $filename; then
+		    wfstatus="SUCCESS"
+    		else
+		    wfstatus="FAIL"
+		fi
+		
+		export RUNID=$(basename $filename .log)
+		
+		export WF="${RUNID}"
+		echo WP1
+		echo "isRun('$WF')." >> provenancedb.datalog
+		echo "hasLogFilename('$WF', '$filename')." >> provenancedb.datalog
+		echo "hasSwiftVersion('$WF', '$version')." >> provenancedb.datalog
+		echo "hasFinalState('$WF', '$wfstatus')." >> provenancedb.datalog
+
+		echo version $version in log file $filename
+		echo ============= will import =============
+		prepare-for-import $filename
+		if [ "$?" != "0" ]; then
+		    echo prepare-for-import failed
+		    exit 2
+		fi
+		version=$version import-run-to-datalog $filename
+		if [ "$?" != "0" ]; then
+		    echo import-run-to-datalog failed
+		    exit 3
+		fi
+	    else 
+		echo SKIP: provenance.log not set to true in etc/swift.properties
+	    fi
+	else
+	    echo SKIP: Already known in workflow
+	fi
+    fi
+done < /tmp/everylog-vs-versions.data

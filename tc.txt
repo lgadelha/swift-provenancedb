@@ -1,0 +1,44 @@
+#This is the transformation crayalog.
+#
+#It comes pre-configured with a number of simple transformations with
+#paths that are likely to work on a linux box. However, on some systems,
+#the paths to these executables will be different (for example, sometimes
+#some of these programs are found in /usr/bin rather than in /bin)
+#
+#NOTE WELL: fields in this file must be separated by tabs, not spaces; and
+#there must be no trailing whitespace at the end of each line.
+#
+# sitename  transformation  path   INSTALLED  platform  profiles
+localhost 	echo 		/bin/echo	INSTALLED	INTEL32::LINUX	null
+localhost 	cray 		/Users/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+localhost 	ls 		/bin/ls		INSTALLED	INTEL32::LINUX	null
+localhost 	grep 		/bin/grep	INSTALLED	INTEL32::LINUX	null
+localhost 	sort 		/bin/sort	INSTALLED	INTEL32::LINUX	null
+localhost 	paste 		/bin/paste	INSTALLED	INTEL32::LINUX	null
+localhost 	cp 		/bin/cp         INSTALLED	INTEL32::LINUX	null
+localhost 	touch 		/bin/touch      INSTALLED	INTEL32::LINUX	null
+localhost	wc		/usr/bin/wc	INSTALLED	INTEL32::LINUX	null
+localhost	sleep		/bin/sleep	null	null 	null
+#lab5-01.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-02.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-03.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-04.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-05.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-06.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-07.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-08.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-09.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-10.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-12.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-13.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-14.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-15.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-16.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-17.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-18.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-19.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+#lab5-20.lncc.br 	cray 		/prj/prjssi/lgadelha/c-ray-1.1/c-ray-mt	INSTALLED	INTEL32::LINUX	null
+localhost	genscenes	/Users/lgadelha/cenapadrj/swift/c-ray/genscenes.sh	null	null	null
+
+
+

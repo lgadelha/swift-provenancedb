@@ -1,0 +1,89 @@
+#!/bin/bash
+
+PROVDIR=$(dirname $0)
+pushd $PROVDIR
+PROVDIR=$(pwd)
+popd
+
+# we need to keep this out of the log-proceesing dir because import
+# of individual runs will clean other files.
+
+source $PROVDIR/etc/provenance.config
+export PATH=$PROVDIR:$PATH
+
+# this generates a file with tuples like:
+# <starttime> <swift version> <logfilename> 
+# This is where Swift's version is collected.
+swift-plot-log $LOGREPO everylog-vs-versions.data
+
+if [ "$?" != "0" ]; then
+    echo swift-plot-log failed when building everylog-vs-versions.data
+    exit 1
+fi
+
+# TODO better tmp handling that always using the same name in a shared
+# directory
+cp everylog-vs-versions.data /tmp/
+
+echo first commandline param is $1
+if [ "$1" == "rebuild" ]; then
+    echo CLEANING DATABASE
+    $SQLCMD < $PROVDIR/prov-init.sql
+fi
+
+while read start version filename cogversion; do
+    
+    export IDIR=$(echo $filename | sed 's/\.log$/.d/')
+    COG_VERSION=$(grep -m 1 -E 'Swift .* swift-r[0-9]*' $filename | sed 's/.*Swift .* cog-r\([0-9]*\).*/\1/')
+    echo IDIR=$IDIR
+    #if [ $version -ge 1538 ]; then
+	echo -n "Log: $filename ... "
+        # TODO: does not work in sqlite
+	fname=$(echo $filename | sed -e 's:[^\`].*/::')
+	EXISTING=$($SQLCMD --tuples-only -c "select count(*) from run where log_filename='$fname';")
+	
+	if [ "$EXISTING" -eq "0" ];  then
+	    PROV_ENABLED=$(grep provenanceid $filename | wc -l)
+	    if [ $PROV_ENABLED -gt 0 ]; then
+		echo IMPORTING
+		
+		if grep --silent "Loader Swift finished with no errors" $filename; then
+		    wfstatus="SUCCESS"
+    		else
+		    wfstatus="FAIL"
+		fi
+		
+		export RUNID=$(basename $filename .log)
+		source_file=$(echo $fname | sed "s/-[0-9]*-[0-9]*-[0-9a-z]*\.log$/\.swift/")	
+		export WF="${RUNID}"
+		
+		#echo "BEGIN TRANSACTION;" > /tmp/$WF.sql
+		echo "INSERT INTO run (id, log_filename, script_filename, swift_version, cog_version, final_state) VALUES ('$WF','$fname','$source_file','$version', '$COG_VERSION', '$wfstatus');" >> /tmp/$WF.sql
+		
+		echo version $version in log file $filename
+		echo ============= will import =============
+		prepare-for-import $filename
+		if [ "$?" != "0" ]; then
+		    echo prepare-for-import failed
+		    exit 2
+		fi
+		version=$version import-run-to-sql-tsp $filename
+		if [ "$?" != "0" ]; then
+		    echo import-run-to-sql-tsp failed
+		    exit 3
+		fi
+		
+                #     import-run-to-xml $filename
+	    else 
+		echo SKIP: provenance.log not set to true in etc/swift.properties
+	    fi
+	else
+	    echo SKIP: Already known in workflow
+	fi
+    #fi
+done < /tmp/everylog-vs-versions.data
+
+# now pull the XML data into eXist, in as few runs as possible to avoid
+# JVM startup.
+# ls `pwd`/*.log.xml | time xargs ~/work/eXist/bin/client.sh -m /db/prov -ouri=xmldb:exist:// -p
+

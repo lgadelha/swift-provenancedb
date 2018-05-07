@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "X$PROVDB" == "X" ]; then
+  echo PROVDB is not set. Defaulting to provdb
+  export PROVDB=provdb
+else
+  echo PROVDB is set to $PROVDB
+fi
+
+cd /home/benc/swift-svn/provenancedb
+./import-all $@
+

@@ -1,0 +1,33 @@
+type scene;
+type image;
+type scene_template;
+
+int threads;
+int steps;
+string resolution;
+
+threads = @toint(@arg("threads","2"));
+resolution = @arg("resolution","800x600");
+steps = @toint(@arg("steps","10"));
+scene_template template <"tscene">;
+
+app (scene out) generate (scene_template t, int i, int total)
+{
+	genscenes i total @filename(t) stdout=@out;
+}
+
+app (image o) render (scene i, string r, int t)
+{
+	cray "-s" r "-t" t stdin=@i stdout=@o;
+}
+
+scene scene_files[] <simple_mapper; location=".", prefix="scene.", suffix=".data">;
+
+image image_files[] <simple_mapper; location=".", prefix="scene.", suffix=".ppm">;
+ 
+foreach i in [1:steps] {
+  scene_files[i] = generate(template, i, steps);
+  image_files[i] = render(scene_files[i], resolution, threads);
+}
+
+

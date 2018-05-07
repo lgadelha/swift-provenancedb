@@ -1,0 +1,33 @@
+#!/bin/bash
+
+PROVDIR=$(dirname $0)
+pushd $PROVDIR
+PROVDIR=$(pwd)
+popd
+source $PROVDIR/etc/provenance.config
+
+ID=$1
+
+#tag:benc@ci.uchicago.edu,2008:swift:dataset:20080114-1353-g1y3moc0:720000000001
+
+echo About dataset $ID
+
+echo "That dataset has these filename(s):"
+echo "select filename from dataset_filenames where dataset_id='$ID';" | $SQLCMD
+echo
+
+echo "That dataset is part of these datasets:"
+echo "select outer_dataset_id from dataset_containment where inner_dataset_id='$ID';" | $SQLCMD
+echo
+
+echo "That dataset contains these datasets:"
+echo "select inner_dataset_id from dataset_containment where outer_dataset_id='$ID';" | $SQLCMD
+
+echo "That dataset was input to the following executions (as the specified named parameter):"
+echo "select execute_id, param_name from dataset_usage where dataset_id='$ID' and direction='I';" | $SQLCMD
+echo
+
+echo "That dataset was output from the following executions (as the specified return parameter):"
+echo "select execute_id, param_name from dataset_usage where dataset_id='$ID' and direction='O';" | $SQLCMD
+echo
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# this should be the main driver script which can be run right after a
+# workflow has finished and will do everything necessary to import all
+# of the provenance information into the SQL provenance database.
+
+swift-plot-log $1 execute.global.event execute2.event workflow.event execute2.global.event compound.event internalproc.event
+
+prepare-provenance-chart $1 $2 $3 $4
+

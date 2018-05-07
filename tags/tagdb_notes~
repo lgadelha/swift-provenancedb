@@ -1,0 +1,10 @@
+tag ds3 name1=1 name2=output key3=1234
+ttag /d1/d2/f5 state=published
+
+
+tag(<objectid>, <list of nvps>)
+locate(
+
+Scientific Database as a Service
+
+SDaS

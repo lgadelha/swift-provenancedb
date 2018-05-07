@@ -1,0 +1,23 @@
+#!/bin/bash
+
+export WFID="$2:"
+export EXECUTE2PREFIX="$2:"
+cat $1 | grep ' PARAM ' | sed "s/^.* thread=\([^ ]*\).*direction=\([^ ]*\).*variable=\([^ ]*\).*provenanceid=\([^ ]*\).*\$/${WFID}\1 \2 \4 \3/" > tie-data-invocs.txt
+cat $1 | grep ' CONTAINMENT ' | sed 's/^.*parent=\([^ ]*\) child=\([^ ]*\)$/\1 \2/' > tie-containers.txt
+cat $1 | grep ' FILENAME ' | sed 's/^.*dataset=\([^ ]*\) filename=\([^ ]*\).*$/\1 \2/' | sort | uniq > dataset-filenames.txt
+cat $1 | grep ' VALUE ' | sed 's/^.*dataset=\([^ ]*\) VALUE=\(.*\)$/\1 \2/' | sort | uniq > dataset-values.txt
+cat $1 | grep ' PROCEDURE ' | sed "s/^.*thread=\([^ ]*\) name=\([^ ]*\)\$/${WFID}\1 \2/" > invocation-procedure-names.txt
+cat $1 | grep ' OPERATOR ' | sed 's/^.*thread=\([^ ]*\) operator="\([^ ]*\)" lhs=\([^ ]*\) rhs=\([^ ]*\) result=\([^ ]*\).*$/\1 \2 \3 \4 \5/' > operators.txt
+cat $1 | grep ' FUNCTION ' | sed "s/^.*id=\([^ ]*\) name=\([^ ]*\) result=\([^ ]*\).*\$/$WFID\1 \2 \3/" > functions.txt
+cat $1 | grep ' FUNCTIONPARAMETER ' | sed "s/^.*id=\([^ ]*\) input=\([^ ]*\).*\$/$WFID\1 \2/" > function-inputs.txt
+cat $1 | grep ' CREATEARRAY START ' | sed 's/^.* array=\([^ ]*\).*$/\1/' > createarray.txt
+cat $1 | grep ' CREATEARRAY MEMBER ' | sed 's/^.* array=\([^ ]*\) index=\([^ ]*\) member=\([^ ]*\).*$/\1 \2 \3/' > createarray-members.txt
+cat $1 | grep ' ARRAYRANGE ' | sed 's/^.* thread=\([^ ]*\).*$/\1/' > arrayrange.txt
+cat $1 | grep ' SCOPE ' | sed 's/^.* thread=\([^ ]*\).*/\1/' > scopes.txt
+cat $1 | grep ' FILE_STAGE_OUT_START ' | sed "s/^.* srcname=\([^ ]*\).*desthost=\([^ ]*\).*jobid=\([^ ]*\).*\$/\1 \2 \3/" > stage-outs.txt
+cat $1 | grep ' Staging in files ' | sed "s/^.* jobid=\([^ ]*\).*Staging in files \([^$]*\).*\$/\1 \2/" > stage-ins.txt
+awk '/BEGIN SWIFTSCRIPT/,/END SWIFTSCRIPT/{if (!/BEGIN SWIFTSCRIPT/&&!/END SWIFTSCRIPT/)print}' $1 > script.txt
+awk '/BEGIN SITES/,/END SITES/{if (!/BEGIN SITES/&&!/END SITES/)print}' $1 > sites.txt
+awk '/BEGIN TC/,/END TC/{if (!/BEGIN TC/&&!/END TC/)print}' $1 > tc.txt
+info-to-extrainfo > extrainfo.txt
+info-to-runtime > runtime.txt

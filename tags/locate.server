@@ -1,0 +1,113 @@
+#! /bin/sh
+
+unset LANG
+
+database=${TAGDB:-provdb}
+
+format=default
+
+echo $(date): STARTING >./locate.log
+echo $(date): "$*" >>./locate.log
+
+while [ $# -gt 0 ]; do
+  case $1 in
+    -u|--user)     user=$2;     shift 2 ;;
+    -p|--password) password=$2; shift 2 ;;
+    -d|--database) database=$2; shift 2 ;;
+    -h|-?|--help|-*|--*) usage; exit  ;;
+    *) break ;;
+  esac
+done
+
+# Authenticate the user
+
+dbpass=$(grep -w "^$user " users | awk '{print $2}')
+
+echo user=$user password=$password dbpass=$dbpass >>./locate.log
+
+if [ _$dbpass != _$password ]; then
+  echo ERROR: authentication failed.
+  exit 1
+fi
+
+SQLCMD="psql -U provdb -h swift.rcc.uchicago.edu $database"
+
+# Translate query
+
+if [ _"$1" = _ -o _"$1" = '_*' ]; then
+  WHERE="(select distinct dataset_id from annot_dataset_text)"
+else
+  WHERE=$(echo $* | sed -e "s/\([[:alnum:]_-]\+\)[[:space:]]*\([!=<>]\+\|like\|ilike\)[[:space:]]*\([[:alnum:] *%.:_-]\+\)/(select dataset_id from annot_dataset_text where name = '\1' AND value \2 '\3')/g" -e "s/ and / INTERSECT /g" -e "s/ or / UNION /g")
+fi
+
+fields="dataset_id, name, value"
+QUERY="select $fields from annot_dataset_text where dataset_id in ($WHERE);"
+
+TQUERY="select * from annot_dataset_text where dataset_id in (
+         select dataset_id from annot_dataset_text where (name='owner' and value='wilde') intersect
+         select dataset_id from annot_dataset_text where (name='type' and value='pdb')
+       );"
+
+tout=$(mktemp /tmp/tags.out.XXXXXX)
+thdr=$(mktemp /tmp/tags.hdr.XXXXXX)
+tbody=$(mktemp /tmp/tags.body.XXXXXX)
+
+$SQLCMD -c "$QUERY" >$tout
+head -2 $tout >$thdr
+tail -n +3 $tout | grep -v '(.*rows)' | grep -v '^$' | /bin/sort >$tbody
+
+if [ $format = default ]; then
+
+echo
+cat $thdr $tbody |  awk '
+BEGIN {
+  start=0
+  for(i=0;i<1024;i++) spaces = spaces " ";
+}
+start==0 { print $0 }
+start==1 {
+  if ($1 != lastid)
+    print "\n" $0;
+  else {
+    line=$0
+    sub("^[^|]*| ",nullds,line);
+    print line;
+  }
+  lastid = $1;
+}
+/------/ {
+  start=1
+  dslen=match($0,"+")-1;
+  nullds = substr(spaces,1,dslen);
+}
+'
+
+elif [ $format = cols ]; then
+
+cat $thdr $tbody |  awk '
+BEGIN {
+  start=0
+  for(i=0;i<1024;i++) spaces = spaces " ";
+  fields = [ a3 a4 ];
+}
+start==0 { print $0 }
+start==1 {
+  if ($1 != lastid)
+    print "\n" $0;
+  else {
+    line=$0
+    sub("^[^|]*| ",nullds,line);
+    print line;
+  }
+  lastid = $1;
+}
+/------/ {
+  start=1
+  dslen=match($0,"+")-1;
+  nullds = substr(spaces,1,dslen);
+}
+'
+
+fi
+
+rm -f $tout $tbody $thdr

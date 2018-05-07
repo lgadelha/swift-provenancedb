@@ -1,0 +1,14 @@
+2009-03-16 17:14:16,551+0100 INFO  Loader 027-single-character-typename.swift: source file is new. Recompiling.
+2009-03-16 17:14:17,248+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:14:17,257+0100 INFO  VariableScope New scope 2310893 with no parent.
+2009-03-16 17:14:17,303+0100 INFO  VariableScope Adding variable i of type q to scope 2310893
+2009-03-16 17:14:18,283+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:14:18,283+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:14:18,492+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:14:19,043+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:14:19,044+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1714-n6pkpsle
+2009-03-16 17:14:19,181+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-6n4k6dn0:720000000001 type q with no value at dataset=i (closed)
+2009-03-16 17:14:19,181+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-6n4k6dn0:720000000001 path=$
+2009-03-16 17:14:19,181+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-6n4k6dn0:720000000001
+2009-03-16 17:14:19,181+0100 DEBUG Loader Swift finished with no errors

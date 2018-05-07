@@ -1,0 +1,55 @@
+#! /bin/sh
+
+usage()
+{
+  echo $0: usage:
+  cat <<END
+    -m|--multiple   allow multiple tags with the same name
+    -u|--user       Defaults to $USER or set from ~/.tagpass
+    -p|--password   Or set from ~/.tagpass
+    -d|--database   Defaults to provdb or \$TAGDB or set from ~/.tagpass
+    -h|-?|?|--help  print this help
+END
+}
+
+HOST=swiftvm2.ci.uchicago.edu
+
+# Default values
+
+user=$USER
+database=provdb
+
+# Get user's preferred user name, password, and database if specified
+
+if [ -r ~/.tagpass ]; then
+  user=$(awk '{print $1}' < ~/.tagpass)
+  password=$(awk '{print $2}' < ~/.tagpass)
+  database=$(awk '{print $3}' < ~/.tagpass)
+fi
+database=${TAGDB:-$database}
+
+# Get command line option flags
+
+multiple=false
+while [ $# -gt 0 ]; do
+  case $1 in
+    -u|--user)     user=$2;       shift 2 ;;
+    -p|--password) password=$2;   shift 2 ;;
+    -d|--database) database=$2;   shift 2 ;;
+    -m|--multiple) multiple=true; shift 1 ;;
+    -h|-?|--help|-*|--*) usage;   exit    ;;
+    *) break                              ;;
+  esac
+done
+
+echo multiple=$multiple
+
+query=$@
+
+query="-u $user -p $password -d $database $query"
+
+query=$(echo $query | sed -e 's/ /\+/g')
+
+echo FINAL: curl http://$HOST/provdb.php?cmd="tags/tag.server+$query"
+
+            curl http://$HOST/provdb.php?cmd="tags/tag.server+$query"

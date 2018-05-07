@@ -1,0 +1,45 @@
+isArtifact(X) :- isDataset(X).
+
+%% used(Process, Dataset, Role).
+%% wasGeneratedBy(Dataset, Process, Role).
+isProcess(X) :- used(X,_,_).
+isProcess(Y) :- wasGeneratedBy(_,Y,_).
+
+isDataset(Y) :- used(_,Y,_).
+isDataset(X) :- wasGeneratedBy(X,_,_).
+
+:- table isAncestor/2.
+isAncestor(X,Y) :- used(Y,X,_).
+isAncestor(X,Y) :- used(Y,Z,_),isAncestor(X,Z).
+isAncestor(X,Y) :- wasGeneratedBy(Y,X,_).
+isAncestor(X,Y) :- wasGeneratedBy(Y,Z,_),isAncestor(X,Z).
+%%isAncestor(X,Y) :- isContainedIn(X,Y).
+%%isAncestor(X,Y) :- isContainedIn(Z,Y),isAncestor(X,Z).
+
+:- table wasDerivedFrom/2.
+wasDerivedFrom(X,Y) :- used(Z,Y,_),wasGeneratedBy(X,Z,_).
+
+:- table wasTriggeredBy/2.
+wasTriggeredBy(X,Y) :- wasGeneratedBy(Z,Y,_),used(X,Z,_).
+
+:- table isContainedInTC/2.
+isContainedInTC(X,Y) :- isContainedIn(X,Y).
+isContainedInTC(X,Y) :- isContainedIn(X,Z),isContainedInTC(Z,Y).
+
+:- table wasDerivedFromTC/2.
+wasDerivedFromTC(X,Y) :- wasDerivedFrom(X,Y).
+wasDerivedFromTC(X,Y) :- wasDerivedFrom(X,Z),wasDerivedFromTC(Z,Y).
+
+:- table wasTriggeredByTC/2.
+wasTriggeredByTC(X,Y) :- wasTriggeredBy(X,Y).
+wasTriggeredByTC(X,Y) :- wasTriggeredBy(X,Z),wasTriggeredByTC(Z,Y).
+
+isInRun(D,X) :- wasGeneratedBy(D,P,_),isInRun(P,X).
+isInRun(D,X) :- used(P,D,_),isInRun(P,X).
+
+runCorrelation(R,D,[N|L],V) :- isRun(R),isDataset(D),isInRun(D,R),hasAnnotation(D,N,V).
+runCorrelation(R,P,[N|L],V) :- isRun(R),isProcess(P),isInRun(P,R),hasAnnotation(P,N,V).
+runCorrelation(R,P,[N|L],V) :- isRun(R),isPro
+
+
+

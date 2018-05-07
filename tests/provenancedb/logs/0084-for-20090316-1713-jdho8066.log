@@ -1,0 +1,59 @@
+2009-03-16 17:13:00,635+0100 INFO  Loader 0084-for.swift: source file is new. Recompiling.
+2009-03-16 17:13:01,384+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:13:01,391+0100 INFO  VariableScope New scope 11922340 with no parent.
+2009-03-16 17:13:01,409+0100 INFO  VariableScope New scope 1766184 with no parent.
+2009-03-16 17:13:01,409+0100 INFO  VariableScope New scope 5373578 with no parent.
+2009-03-16 17:13:01,410+0100 INFO  VariableScope Adding variable t of type file to scope 5373578
+2009-03-16 17:13:01,411+0100 INFO  VariableScope Adding variable m of type string to scope 1766184
+2009-03-16 17:13:01,487+0100 INFO  VariableScope Adding variable swift#mapper#17000 of type string to scope 11922340
+2009-03-16 17:13:01,489+0100 INFO  VariableScope Adding variable swift#mapper#17002 of type string to scope 11922340
+2009-03-16 17:13:01,489+0100 INFO  VariableScope Adding variable f1 of type file[] to scope 11922340
+2009-03-16 17:13:01,491+0100 INFO  VariableScope New scope 287030 with no parent.
+2009-03-16 17:13:01,491+0100 INFO  VariableScope Adding variable i1 of type file to scope 287030
+2009-03-16 17:13:02,514+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:13:02,515+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:13:02,720+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:13:03,282+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:13:03,283+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1713-jdho8066
+2009-03-16 17:13:03,314+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000001 type string value=. dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:13:03,314+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000001 path=$
+2009-03-16 17:13:03,314+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000001 VALUE=.
+2009-03-16 17:13:03,323+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000001
+2009-03-16 17:13:03,324+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000002 type string value=0083-for*.in dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:13:03,324+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000002 path=$
+2009-03-16 17:13:03,324+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000002 VALUE=0083-for*.in
+2009-03-16 17:13:03,324+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000002
+2009-03-16 17:13:03,350+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003
+2009-03-16 17:13:03,351+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004
+2009-03-16 17:13:03,354+0100 INFO  AbstractDataNode Adding handle listener "f1.$[]/0" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 type string with no value at dataset=swift#mapper#17000 (not closed)"
+2009-03-16 17:13:03,354+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005
+2009-03-16 17:13:03,370+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 type string with no value at dataset=swift#mapper#17000 (not closed) to 0083-for*.in
+2009-03-16 17:13:03,372+0100 INFO  AbstractDataNode Notifying listener "f1.$[]/0" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 type string value=0083-for*.in dataset=swift#mapper#17000 (closed)"
+2009-03-16 17:13:03,372+0100 INFO  AbstractDataNode Adding handle listener "f1.$[]/0" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 type string with no value at dataset=swift#mapper#17002 (not closed)"
+2009-03-16 17:13:03,372+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 type string value=0083-for*.in dataset=swift#mapper#17000 (closed)
+2009-03-16 17:13:03,373+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 path=$
+2009-03-16 17:13:03,373+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 VALUE=0083-for*.in
+2009-03-16 17:13:03,373+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 type string with no value at dataset=swift#mapper#17002 (not closed) to .
+2009-03-16 17:13:03,374+0100 INFO  AbstractDataNode Notifying listener "f1.$[]/0" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 type string value=. dataset=swift#mapper#17002 (closed)"
+2009-03-16 17:13:03,376+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000003 filename=file://localhost/_concurrent/swift#mapper#17000-9c9542b7-f160-4199-b42b-e4b683a17404-
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.DataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000006 type file with no value at dataset=f1 path=[0] (closed)
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000006 path=[0]
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode Found data f1.$[]/1.[0]
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.DataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000007 type file with no value at dataset=f1 path=[1] (closed)
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000007 path=[1]
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode Found data f1.$[]/2.[1]
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootArrayDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 type file[] with no value at dataset=f1 (closed)
+2009-03-16 17:13:03,472+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 path=$
+2009-03-16 17:13:03,473+0100 INFO  AbstractDataNode CONTAINMENT parent=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 child=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000006
+2009-03-16 17:13:03,473+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000006 path=[0]
+2009-03-16 17:13:03,473+0100 INFO  AbstractDataNode CONTAINMENT parent=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 child=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000007
+2009-03-16 17:13:03,474+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000007 path=[1]
+2009-03-16 17:13:03,475+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 type string value=. dataset=swift#mapper#17002 (closed)
+2009-03-16 17:13:03,475+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 path=$
+2009-03-16 17:13:03,475+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 VALUE=.
+2009-03-16 17:13:03,475+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000004 filename=file://localhost/_concurrent/swift#mapper#17002-b2cad29b-6f36-4a98-b1c4-3c2811a4620c-
+2009-03-16 17:13:03,476+0100 INFO  AbstractDataNode Adding handle listener "Open, 0 elements, no listeners" to "org.griphyn.vdl.mapping.RootArrayDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 type file[] with no value at dataset=f1 (closed)"
+2009-03-16 17:13:03,476+0100 INFO  AbstractDataNode Notifying listener "Open, 0 elements, no listeners" about "org.griphyn.vdl.mapping.RootArrayDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1713-1d9dau79:720000000005 type file[] with no value at dataset=f1 (closed)"
+2009-03-16 17:13:03,492+0100 INFO  vdl:cleanups START cleanups=[]
+2009-03-16 17:13:03,496+0100 DEBUG Loader Swift finished with no errors

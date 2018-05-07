@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PROVDIR=$(dirname $0)
+pushd $PROVDIR
+PROVDIR=$(pwd)
+popd
+
+source $PROVDIR/etc/provenance.config
+
+FILENAME="file://localhost/$1"
+
+echo Dataset IDs for files that have name $FILENAME
+
+
+# when used with postgres, --tuples-only is useful here; but it doesn't
+# generalise
+
+echo "select dataset_id from dataset_filenames where filename='$FILENAME';" | $SQLCMD
+
+
+

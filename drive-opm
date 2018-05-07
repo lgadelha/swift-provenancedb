@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# driver for log file -> OPM conversion
+
+filename=$1
+
+export PATH=$PATH
+
+echo log to OPM conversion for $filename
+
+./prepare-for-import $filename
+./prov-to-opm.sh $filename
+

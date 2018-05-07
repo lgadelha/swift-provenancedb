@@ -1,0 +1,39 @@
+2009-03-16 17:31:31,555+0100 INFO  Loader proc-in-expr.swift: source file is new. Recompiling.
+2009-03-16 17:31:32,290+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:31:32,298+0100 INFO  VariableScope New scope 11643677 with no parent.
+2009-03-16 17:31:32,310+0100 INFO  VariableScope New scope 14085672 with no parent.
+2009-03-16 17:31:32,310+0100 INFO  VariableScope New scope 11373492 with no parent.
+2009-03-16 17:31:32,311+0100 INFO  VariableScope Adding variable r of type int to scope 11373492
+2009-03-16 17:31:32,312+0100 INFO  VariableScope Adding variable p of type int to scope 14085672
+2009-03-16 17:31:32,312+0100 INFO  VariableScope New scope 6672059 with no parent.
+2009-03-16 17:31:32,368+0100 INFO  VariableScope added 88000 to variable r in scope 6672059
+2009-03-16 17:31:32,375+0100 INFO  VariableScope Adding variable x of type int to scope 11643677
+2009-03-16 17:31:32,388+0100 INFO  VariableScope thats the declaration for x
+2009-03-16 17:31:33,431+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:31:33,432+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:31:33,647+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:31:34,183+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:31:34,184+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1731-c99e1r48
+2009-03-16 17:31:34,211+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000001 type int value=3.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:31:34,211+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000001 path=$
+2009-03-16 17:31:34,211+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000001 VALUE=3
+2009-03-16 17:31:34,220+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000001
+2009-03-16 17:31:34,246+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002
+2009-03-16 17:31:34,265+0100 INFO  mynum 
+2009-03-16 17:31:34,268+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 type int with no value at dataset=x (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 type int with no value at dataset=x (not closed)"
+2009-03-16 17:31:34,269+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 type int with no value at dataset=x (not closed) to 3
+2009-03-16 17:31:34,269+0100 INFO  AbstractDataNode Notifying listener "F/3" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 type int value=3.0 dataset=x (closed)"
+2009-03-16 17:31:34,269+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 type int value=3.0 dataset=x (closed)
+2009-03-16 17:31:34,269+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 path=$
+2009-03-16 17:31:34,269+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 VALUE=3
+2009-03-16 17:31:34,271+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1731-dl3cuj5g:720000000002 filename=file://localhost/_concurrent/x-2215ad57-fa3c-4244-b3fa-c67bf83e7ca7-
+2009-03-16 17:31:34,271+0100 INFO  CloseDataset Closing 3
+2009-03-16 17:31:34,272+0100 WARN  trace SwiftScript trace: 3
+2009-03-16 17:31:34,272+0100 INFO  mynum 
+2009-03-16 17:31:34,272+0100 INFO  CloseDataset Partially closing 3 for statement 88001
+2009-03-16 17:31:34,272+0100 INFO  CloseDataset var is 3
+2009-03-16 17:31:34,273+0100 INFO  CloseDataset var hash is 8318753
+2009-03-16 17:31:34,273+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:31:34,283+0100 INFO  vdl:cleanups START cleanups=[]
+2009-03-16 17:31:34,287+0100 DEBUG Loader Swift finished with no errors

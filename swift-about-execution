@@ -1,0 +1,26 @@
+#!/bin/bash
+
+PROVDIR=$(dirname $0)
+pushd $PROVDIR
+PROVDIR=$(pwd)
+popd
+
+source $PROVDIR/etc/provenance.config
+
+EXECUTEID=$1
+
+echo About execution $EXECUTEID
+
+echo "select * from executes where id='$EXECUTEID';" | $SQLCMD
+echo
+
+echo Name of SwiftScript procedure which invoked this:
+echo "select procedure_name from invocation_procedure_names where execute_id='$EXECUTEID';" | $SQLCMD
+echo
+
+echo Input datasets:
+echo "select dataset_id,param_name from dataset_usage where execute_id='$EXECUTEID' and direction='I';" | $SQLCMD
+echo
+
+echo Output datasets:
+echo "select dataset_id,param_name from dataset_usage where execute_id='$EXECUTEID' and direction='O';" | $SQLCMD

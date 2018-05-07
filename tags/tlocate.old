@@ -1,0 +1,86 @@
+#! /bin/sh
+
+TAGDB=${TAGDB:-provdb}
+
+SQLCMD="psql -U provdb -h swift.rcc.uchicago.edu $TAGDB"
+
+format=default
+
+echo
+
+if [ _"$1" = _ -o _"$1" = '_*' ]; then
+  WHERE="(select distinct dataset_id from annot_dataset_text)"
+else
+  WHERE=$(echo $* | sed -e "s/\([[:alnum:]_-]\+\)[[:space:]]*\([!=<>]\+\|like\|ilike\)[[:space:]]*\([[:alnum:] *%.:_-]\+\)/(select dataset_id from annot_dataset_text where name = '\1' AND value \2 '\3')/g" -e "s/ and / INTERSECT /g" -e "s/ or / UNION /g")
+fi
+
+QUERY="select * from annot_dataset_text where dataset_id in ($WHERE);"
+
+TQUERY="select * from annot_dataset_text where dataset_id in (
+         select dataset_id from annot_dataset_text where (name='owner' and value='wilde') intersect
+         select dataset_id from annot_dataset_text where (name='type' and value='pdb')
+       );"
+
+echo -e "$QUERY\n"
+
+$SQLCMD -c "$QUERY" >t.out
+head -2 t.out >t.hdr
+tail -n +2 t.out | sort >t.body
+
+if [ $format = default ]; then
+
+cat t.hdr t.body |  awk '
+BEGIN {
+  start=0
+  for(i=0;i<1024;i++) spaces = spaces " ";
+}
+start==0 { print $0 }
+start==1 {
+  if ($1 != lastid)
+    print "\n" $0;
+  else {
+    line=$0
+    sub("^[^|]*| ",nullds,line);
+    print line;
+  }
+  lastid = $1;
+}
+/------/ {
+  start=1
+  dslen=match($0,"+")-1;
+  nullds = substr(spaces,1,dslen);
+}
+'
+
+elif [ $format = cols ]; then
+
+cat t.hdr t.body |  awk '
+BEGIN {
+  start=0
+  for(i=0;i<1024;i++) spaces = spaces " ";
+  fields = [ a3 a4 ];
+}
+start==0 { print $0 }
+start==1 {
+  if ($1 != lastid)
+    print "\n" $0;
+  else {
+    line=$0
+    sub("^[^|]*| ",nullds,line);
+    print line;
+  }
+  lastid = $1;
+}
+/------/ {
+  start=1
+  dslen=match($0,"+")-1;
+  nullds = substr(spaces,1,dslen);
+}
+'
+
+fi
+
+
+exit
+
+locate owner=sinitzkiy or owner=wilde

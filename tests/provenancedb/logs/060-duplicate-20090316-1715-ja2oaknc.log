@@ -1,0 +1,241 @@
+2009-03-16 17:15:33,424+0100 INFO  Loader 060-duplicate.swift: source file is new. Recompiling.
+2009-03-16 17:15:34,154+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:15:34,161+0100 INFO  VariableScope New scope 11922340 with no parent.
+2009-03-16 17:15:34,179+0100 INFO  VariableScope New scope 1766184 with no parent.
+2009-03-16 17:15:34,180+0100 INFO  VariableScope New scope 5373578 with no parent.
+2009-03-16 17:15:34,181+0100 INFO  VariableScope Adding variable t of type file to scope 5373578
+2009-03-16 17:15:34,182+0100 INFO  VariableScope Adding variable m of type file to scope 1766184
+2009-03-16 17:15:34,282+0100 INFO  VariableScope Adding variable input of type file to scope 11922340
+2009-03-16 17:15:34,282+0100 INFO  VariableScope Adding variable output of type file to scope 11922340
+2009-03-16 17:15:34,290+0100 INFO  VariableScope looking at declaration <set name="input">
+      <vdl:new type="file" dbgname="input">
+        <vdl:mapping descriptor="single_file_mapper">
+          <vdl:parameter name="file" value="060-duplicate.in"/>
+          <vdl:parameter name="input" value="true" />
+        </vdl:mapping>
+      </vdl:new>
+</set>
+2009-03-16 17:15:34,292+0100 INFO  VariableScope looking at declaration <set name="output">
+      <vdl:new type="file" dbgname="output">
+        <vdl:mapping descriptor="single_file_mapper">
+          <vdl:parameter name="file" value="060-duplicate.out"/>
+          <vdl:parameter name="input" value="true" />
+        </vdl:mapping>
+      </vdl:new>
+</set>
+2009-03-16 17:15:34,292+0100 INFO  VariableScope thats the declaration for output
+2009-03-16 17:15:35,263+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:15:35,263+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:15:35,468+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:15:36,023+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:15:36,024+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1715-ja2oaknc
+2009-03-16 17:15:36,092+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000001 type file with no value at dataset=input (closed)
+2009-03-16 17:15:36,092+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000001 path=$
+2009-03-16 17:15:36,093+0100 INFO  AbstractDataNode Found data org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000001 type file with no value at dataset=input (closed).$
+2009-03-16 17:15:36,093+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000001
+2009-03-16 17:15:36,097+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002
+2009-03-16 17:15:36,114+0100 INFO  echo PROCEDURE thread=0 name=echo
+2009-03-16 17:15:36,115+0100 INFO  vdl:parameterlog PARAM thread=0 direction=input variable=m provenanceid=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000001
+2009-03-16 17:15:36,116+0100 INFO  vdl:parameterlog PARAM thread=0 direction=output variable=t provenanceid=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002
+2009-03-16 17:15:36,124+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000003 type string value=060-duplicate.in dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:15:36,124+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000003 path=$
+2009-03-16 17:15:36,124+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000003 VALUE=060-duplicate.in
+2009-03-16 17:15:36,125+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000004 type string value=060-duplicate.out dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:15:36,125+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000004 path=$
+2009-03-16 17:15:36,125+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000004 VALUE=060-duplicate.out
+2009-03-16 17:15:36,131+0100 INFO  vdl:execute START thread=0 tr=echo
+2009-03-16 17:15:36,148+0100 INFO  WeightedHostScoreScheduler Sorted: [localhost:0.000(1.000):0/1 overload: 0]
+2009-03-16 17:15:36,148+0100 DEBUG WeightedHostScoreScheduler Rand: 0.13185070977291835, sum: 1.0
+2009-03-16 17:15:36,148+0100 DEBUG WeightedHostScoreScheduler Next contact: localhost:0.000(1.000):0/1 overload: 0
+2009-03-16 17:15:36,151+0100 INFO  vdl:initshareddir START host=localhost - Initializing shared directory
+2009-03-16 17:15:36,153+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.000(1.000):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,153+0100 DEBUG WeightedHostScoreScheduler Old score: 0.000, new score: -0.010
+2009-03-16 17:15:36,156+0100 INFO  GlobalSubmitQueue No global submit throttle set. Using default (100)
+2009-03-16 17:15:36,195+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136093) setting status to Submitting
+2009-03-16 17:15:36,196+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136093) setting status to Submitted
+2009-03-16 17:15:36,196+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136093) setting status to Active
+2009-03-16 17:15:36,196+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136093) setting status to Completed
+2009-03-16 17:15:36,197+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:-0.010(0.994):1/1 overload: -51, 0.01)
+2009-03-16 17:15:36,197+0100 DEBUG WeightedHostScoreScheduler Old score: -0.010, new score: 0.000
+2009-03-16 17:15:36,197+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.000(1.000):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,197+0100 DEBUG WeightedHostScoreScheduler Old score: 0.000, new score: 0.100
+2009-03-16 17:15:36,197+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136093) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,201+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.100(1.060):1/1 overload: 0, -0.2)
+2009-03-16 17:15:36,201+0100 DEBUG WeightedHostScoreScheduler Old score: 0.100, new score: -0.100
+2009-03-16 17:15:36,218+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136096) setting status to Submitting
+2009-03-16 17:15:36,218+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136096) setting status to Submitted
+2009-03-16 17:15:36,218+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136096) setting status to Active
+2009-03-16 17:15:36,219+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136096) setting status to Completed
+2009-03-16 17:15:36,220+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:-0.100(0.943):1/1 overload: -35, 0.2)
+2009-03-16 17:15:36,220+0100 DEBUG WeightedHostScoreScheduler Old score: -0.100, new score: 0.100
+2009-03-16 17:15:36,220+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.100(1.060):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,220+0100 DEBUG WeightedHostScoreScheduler Old score: 0.100, new score: 0.200
+2009-03-16 17:15:36,220+0100 INFO  LateBindingScheduler Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136096) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,221+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.200(1.124):1/1 overload: 0, -0.2)
+2009-03-16 17:15:36,221+0100 DEBUG WeightedHostScoreScheduler Old score: 0.200, new score: 0.000
+2009-03-16 17:15:36,221+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136099) setting status to Submitting
+2009-03-16 17:15:36,221+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136099) setting status to Submitted
+2009-03-16 17:15:36,222+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136099) setting status to Active
+2009-03-16 17:15:36,222+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136099) setting status to Completed
+2009-03-16 17:15:36,223+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.000(1.000):1/1 overload: 0, 0.2)
+2009-03-16 17:15:36,223+0100 DEBUG WeightedHostScoreScheduler Old score: 0.000, new score: 0.200
+2009-03-16 17:15:36,223+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.200(1.124):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,223+0100 DEBUG WeightedHostScoreScheduler Old score: 0.200, new score: 0.300
+2009-03-16 17:15:36,223+0100 INFO  LateBindingScheduler Task(type=FILE_TRANSFER, identity=urn:0-1-1237220136099) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,224+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.300(1.192):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,224+0100 DEBUG WeightedHostScoreScheduler Old score: 0.300, new score: 0.290
+2009-03-16 17:15:36,224+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136102) setting status to Submitting
+2009-03-16 17:15:36,224+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136102) setting status to Submitted
+2009-03-16 17:15:36,224+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136102) setting status to Active
+2009-03-16 17:15:36,225+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136102) setting status to Completed
+2009-03-16 17:15:36,225+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.290(1.185):1/1 overload: 0, 0.01)
+2009-03-16 17:15:36,225+0100 DEBUG WeightedHostScoreScheduler Old score: 0.290, new score: 0.300
+2009-03-16 17:15:36,225+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.300(1.192):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,225+0100 DEBUG WeightedHostScoreScheduler Old score: 0.300, new score: 0.400
+2009-03-16 17:15:36,225+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136102) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,227+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.400(1.264):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,227+0100 DEBUG WeightedHostScoreScheduler Old score: 0.400, new score: 0.390
+2009-03-16 17:15:36,227+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136104) setting status to Submitting
+2009-03-16 17:15:36,227+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136104) setting status to Submitted
+2009-03-16 17:15:36,227+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136104) setting status to Active
+2009-03-16 17:15:36,228+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136104) setting status to Completed
+2009-03-16 17:15:36,228+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.390(1.256):1/1 overload: 0, 0.01)
+2009-03-16 17:15:36,228+0100 DEBUG WeightedHostScoreScheduler Old score: 0.390, new score: 0.400
+2009-03-16 17:15:36,228+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.400(1.264):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,228+0100 DEBUG WeightedHostScoreScheduler Old score: 0.400, new score: 0.500
+2009-03-16 17:15:36,228+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136104) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,229+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.500(1.339):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,229+0100 DEBUG WeightedHostScoreScheduler Old score: 0.500, new score: 0.490
+2009-03-16 17:15:36,229+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136106) setting status to Submitting
+2009-03-16 17:15:36,229+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136106) setting status to Submitted
+2009-03-16 17:15:36,229+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136106) setting status to Active
+2009-03-16 17:15:36,230+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136106) setting status to Completed
+2009-03-16 17:15:36,230+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.490(1.332):1/1 overload: 0, 0.01)
+2009-03-16 17:15:36,230+0100 DEBUG WeightedHostScoreScheduler Old score: 0.490, new score: 0.500
+2009-03-16 17:15:36,231+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.500(1.339):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,231+0100 DEBUG WeightedHostScoreScheduler Old score: 0.500, new score: 0.600
+2009-03-16 17:15:36,231+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136106) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,232+0100 INFO  vdl:initshareddir END host=localhost - Done initializing shared directory
+2009-03-16 17:15:36,234+0100 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=echo-by9v918j thread=0-1 host=localhost replicationGroup=ay9v918j
+2009-03-16 17:15:36,242+0100 INFO  vdl:createdirset START jobid=echo-by9v918j host=localhost - Initializing directory structure
+2009-03-16 17:15:36,243+0100 INFO  vdl:createdirs START path= dir=060-duplicate-20090316-1715-ja2oaknc/shared - Creating directory structure
+2009-03-16 17:15:36,244+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.600(1.419):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,244+0100 DEBUG WeightedHostScoreScheduler Old score: 0.600, new score: 0.590
+2009-03-16 17:15:36,244+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136108) setting status to Submitting
+2009-03-16 17:15:36,244+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136108) setting status to Submitted
+2009-03-16 17:15:36,244+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136108) setting status to Active
+2009-03-16 17:15:36,244+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136108) setting status to Completed
+2009-03-16 17:15:36,245+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.590(1.411):1/1 overload: 0, 0.01)
+2009-03-16 17:15:36,245+0100 DEBUG WeightedHostScoreScheduler Old score: 0.590, new score: 0.600
+2009-03-16 17:15:36,245+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.600(1.419):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,245+0100 DEBUG WeightedHostScoreScheduler Old score: 0.600, new score: 0.700
+2009-03-16 17:15:36,245+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136108) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,245+0100 INFO  vdl:createdirset END jobid=echo-by9v918j - Done initializing directory structure
+2009-03-16 17:15:36,246+0100 INFO  vdl:dostagein START jobid=echo-by9v918j - Staging in files
+2009-03-16 17:15:36,249+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136110) setting status to Submitting
+2009-03-16 17:15:36,249+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136110) setting status to Submitted
+2009-03-16 17:15:36,249+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136110) setting status to Active
+2009-03-16 17:15:36,251+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136110) setting status to Completed
+2009-03-16 17:15:36,252+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136110) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,258+0100 DEBUG vdl:dostagein FILE_STAGE_IN_START file=file://localhost/060-duplicate.in srchost=localhost srcdir= srcname=060-duplicate.in desthost=localhost destdir=060-duplicate-20090316-1715-ja2oaknc/shared/ provider=file
+2009-03-16 17:15:36,259+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.700(1.503):1/1 overload: 0, -0.2)
+2009-03-16 17:15:36,260+0100 DEBUG WeightedHostScoreScheduler Old score: 0.700, new score: 0.500
+2009-03-16 17:15:36,260+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136113) setting status to Submitting
+2009-03-16 17:15:36,260+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136113) setting status to Submitted
+2009-03-16 17:15:36,260+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136113) setting status to Active
+2009-03-16 17:15:36,261+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136113) setting status to Completed
+2009-03-16 17:15:36,262+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.500(1.339):1/1 overload: 0, 0.2)
+2009-03-16 17:15:36,262+0100 DEBUG WeightedHostScoreScheduler Old score: 0.500, new score: 0.700
+2009-03-16 17:15:36,262+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.700(1.503):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,262+0100 DEBUG WeightedHostScoreScheduler Old score: 0.700, new score: 0.800
+2009-03-16 17:15:36,262+0100 INFO  LateBindingScheduler Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136113) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,263+0100 DEBUG vdl:dostagein FILE_STAGE_IN_END file=file://localhost/060-duplicate.in srchost=localhost srcdir= srcname=060-duplicate.in desthost=localhost destdir=060-duplicate-20090316-1715-ja2oaknc/shared/ provider=file
+2009-03-16 17:15:36,263+0100 INFO  vdl:dostagein END jobid=echo-by9v918j - Staging in finished
+2009-03-16 17:15:36,264+0100 DEBUG vdl:execute2 JOB_START jobid=echo-by9v918j tr=echo arguments=[060-duplicate.in] tmpdir=060-duplicate-20090316-1715-ja2oaknc/jobs/b/echo-by9v918j host=localhost
+2009-03-16 17:15:36,280+0100 INFO  Execute jobid=echo-by9v918j task=Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116)
+2009-03-16 17:15:36,280+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.800(1.592):1/1 overload: 0, -0.2)
+2009-03-16 17:15:36,280+0100 DEBUG WeightedHostScoreScheduler Old score: 0.800, new score: 0.600
+2009-03-16 17:15:36,284+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116) setting status to Submitting
+2009-03-16 17:15:36,285+0100 INFO  JobSubmissionTaskHandler Submitting task Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116)
+2009-03-16 17:15:36,285+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116) setting status to Submitted
+2009-03-16 17:15:36,285+0100 DEBUG WeightedHostScoreScheduler Submission time for Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116): 1ms. Score delta: 0.002558974358974359
+2009-03-16 17:15:36,285+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.600(1.419):1/1 overload: 0, 0.002558974358974359)
+2009-03-16 17:15:36,286+0100 DEBUG WeightedHostScoreScheduler Old score: 0.600, new score: 0.603
+2009-03-16 17:15:36,297+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116) setting status to Active
+2009-03-16 17:15:36,425+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116) setting status to Completed
+2009-03-16 17:15:36,426+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.603(1.421):1/1 overload: 0, 0.2)
+2009-03-16 17:15:36,426+0100 DEBUG WeightedHostScoreScheduler Old score: 0.603, new score: 0.803
+2009-03-16 17:15:36,426+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.803(1.595):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,426+0100 DEBUG WeightedHostScoreScheduler Old score: 0.803, new score: 0.903
+2009-03-16 17:15:36,426+0100 INFO  LateBindingScheduler Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136116) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,433+0100 DEBUG vdl:checkjobstatus START jobid=echo-by9v918j
+2009-03-16 17:15:36,434+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.903(1.688):1/1 overload: 0, -0.01)
+2009-03-16 17:15:36,435+0100 DEBUG WeightedHostScoreScheduler Old score: 0.903, new score: 0.893
+2009-03-16 17:15:36,435+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136118) setting status to Submitting
+2009-03-16 17:15:36,435+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136118) setting status to Submitted
+2009-03-16 17:15:36,435+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136118) setting status to Active
+2009-03-16 17:15:36,436+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1237220136118) setting status to Completed
+2009-03-16 17:15:36,436+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.893(1.678):1/1 overload: 0, 0.01)
+2009-03-16 17:15:36,436+0100 DEBUG WeightedHostScoreScheduler Old score: 0.893, new score: 0.903
+2009-03-16 17:15:36,436+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.903(1.688):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,436+0100 DEBUG WeightedHostScoreScheduler Old score: 0.903, new score: 1.003
+2009-03-16 17:15:36,437+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1237220136118) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,438+0100 INFO  vdl:checkjobstatus SUCCESS jobid=echo-by9v918j - Success file found
+2009-03-16 17:15:36,438+0100 DEBUG vdl:execute2 STAGING_OUT jobid=echo-by9v918j
+2009-03-16 17:15:36,439+0100 INFO  vdl:dostageout START jobid=echo-by9v918j - Staging out files
+2009-03-16 17:15:36,445+0100 DEBUG vdl:dostageout FILE_STAGE_OUT_START srcname=060-duplicate.out srcdir=060-duplicate-20090316-1715-ja2oaknc/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2009-03-16 17:15:36,446+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136120) setting status to Submitting
+2009-03-16 17:15:36,446+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136120) setting status to Submitted
+2009-03-16 17:15:36,446+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136120) setting status to Active
+2009-03-16 17:15:36,446+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136120) setting status to Completed
+2009-03-16 17:15:36,447+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136120) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,448+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.003(1.786):1/1 overload: 0, -0.2)
+2009-03-16 17:15:36,449+0100 DEBUG WeightedHostScoreScheduler Old score: 1.003, new score: 0.803
+2009-03-16 17:15:36,450+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136122) setting status to Submitting
+2009-03-16 17:15:36,450+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136122) setting status to Submitted
+2009-03-16 17:15:36,450+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136122) setting status to Active
+2009-03-16 17:15:36,451+0100 DEBUG TaskImpl Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136122) setting status to Completed
+2009-03-16 17:15:36,451+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:0.803(1.595):1/1 overload: 0, 0.2)
+2009-03-16 17:15:36,451+0100 DEBUG WeightedHostScoreScheduler Old score: 0.803, new score: 1.003
+2009-03-16 17:15:36,451+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.003(1.786):1/1 overload: 0, 0.1)
+2009-03-16 17:15:36,454+0100 DEBUG WeightedHostScoreScheduler Old score: 1.003, new score: 1.103
+2009-03-16 17:15:36,454+0100 INFO  LateBindingScheduler Task(type=FILE_TRANSFER, identity=urn:0-1-1-1237220136122) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,455+0100 DEBUG vdl:dostageout FILE_STAGE_OUT_END srcname=060-duplicate.out srcdir=060-duplicate-20090316-1715-ja2oaknc/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2009-03-16 17:15:36,455+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136125) setting status to Submitting
+2009-03-16 17:15:36,455+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136125) setting status to Submitted
+2009-03-16 17:15:36,456+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136125) setting status to Active
+2009-03-16 17:15:36,456+0100 DEBUG TaskImpl Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136125) setting status to Completed
+2009-03-16 17:15:36,456+0100 INFO  LateBindingScheduler Task(type=FILE_OPERATION, identity=urn:0-1-1-1237220136125) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,458+0100 INFO  vdl:dostageout END jobid=echo-by9v918j - Staging out finished
+2009-03-16 17:15:36,467+0100 DEBUG vdl:execute2 JOB_END jobid=echo-by9v918j
+2009-03-16 17:15:36,467+0100 DEBUG WeightedHostScoreScheduler Releasing contact 2
+2009-03-16 17:15:36,467+0100 DEBUG WeightedHostScoreScheduler commitDelayedScore(localhost:1.103(1.889):0/1 overload: 0, 0.1
+2009-03-16 17:15:36,474+0100 INFO  vdl:execute END_SUCCESS thread=0 tr=echo
+2009-03-16 17:15:36,476+0100 INFO  CloseDataset Closing org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 type file with no value at dataset=output (not closed)
+2009-03-16 17:15:36,485+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 type file with no value at dataset=output (closed)
+2009-03-16 17:15:36,485+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 path=$
+2009-03-16 17:15:36,486+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 filename=file://localhost/060-duplicate.out
+2009-03-16 17:15:36,486+0100 INFO  CloseDataset Partially closing org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 type file with no value at dataset=output (closed) for statement 88000
+2009-03-16 17:15:36,486+0100 INFO  CloseDataset var is org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1715-dlmmtche:720000000002 type file with no value at dataset=output (closed)
+2009-03-16 17:15:36,486+0100 INFO  CloseDataset var hash is 12677894
+2009-03-16 17:15:36,486+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:15:36,503+0100 INFO  vdl:cleanups START cleanups=[[060-duplicate-20090316-1715-ja2oaknc, localhost]]
+2009-03-16 17:15:36,504+0100 INFO  vdl:cleanup START dir=060-duplicate-20090316-1715-ja2oaknc host=localhost
+2009-03-16 17:15:36,507+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.203(1.998):0/1 overload: 0, -0.2)
+2009-03-16 17:15:36,507+0100 DEBUG WeightedHostScoreScheduler Old score: 1.203, new score: 1.003
+2009-03-16 17:15:36,507+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127) setting status to Submitting
+2009-03-16 17:15:36,508+0100 INFO  JobSubmissionTaskHandler Submitting task Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127)
+2009-03-16 17:15:36,508+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127) setting status to Submitted
+2009-03-16 17:15:36,508+0100 DEBUG WeightedHostScoreScheduler Submission time for Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127): 1ms. Score delta: 0.002558974358974359
+2009-03-16 17:15:36,512+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.003(1.786):0/1 overload: 0, 0.002558974358974359)
+2009-03-16 17:15:36,512+0100 DEBUG WeightedHostScoreScheduler Old score: 1.003, new score: 1.005
+2009-03-16 17:15:36,512+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127) setting status to Active
+2009-03-16 17:15:36,513+0100 DEBUG TaskImpl Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127) setting status to Completed
+2009-03-16 17:15:36,513+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.005(1.789):0/1 overload: 0, 0.2)
+2009-03-16 17:15:36,513+0100 DEBUG WeightedHostScoreScheduler Old score: 1.005, new score: 1.205
+2009-03-16 17:15:36,513+0100 DEBUG WeightedHostScoreScheduler multiplyScore(localhost:1.205(2.000):0/1 overload: 0, 0.1)
+2009-03-16 17:15:36,513+0100 DEBUG WeightedHostScoreScheduler Old score: 1.205, new score: 1.305
+2009-03-16 17:15:36,519+0100 INFO  LateBindingScheduler Task(type=JOB_SUBMISSION, identity=urn:0-1-1237220136127) Completed. Waiting: 0, Running: 0. Heap size: 10M, Heap free: 1M, Max heap: 254M
+2009-03-16 17:15:36,530+0100 INFO  vdl:cleanup END dir=060-duplicate-20090316-1715-ja2oaknc host=localhost
+2009-03-16 17:15:36,539+0100 DEBUG Loader Swift finished with no errors

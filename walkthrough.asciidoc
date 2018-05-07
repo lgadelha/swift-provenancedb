@@ -1,0 +1,303 @@
+= Demonstration of Swift's Provenance Database =
+
+Swift's Provenance Database is a set of scripts, SQL functions and stored procedures, and a query interface. It extracts provenance information from Swift's log files into a relational database. The tools are downloadable through SVN with the command:
+
+--------------------------------------
+svn co https://svn.ci.uchicago.edu/svn/vdl2/provenancedb
+--------------------------------------
+
+== Database Configuration
+
+Swift Provenance Database depends on PostgreSQL, version 8.4 or later, due to the use of _Common Table Expressions_ for computing transitive closures of data derivation relationships, supported only on these versions. The file +prov-init.sql+ contains the database schema, and the file +pql_functions.sql+ contain the function and stored procedure definitions. If the user has not created a provenance database yet, this can be done with the following commands (one may need to add "+-U+ _username_" and "+-h+ _hostname_" before the database name "+provdb+", depending on the database server configuration):
+
+--------------------------------------
+createdb provdb
+psql -f prov-init.sql provdb
+psql -f pql-functions.sql provdb
+--------------------------------------
+
+== Swift Provenance Database Configuration
+
+The file +etc/provenance.config+ should be edited to define the database configuration. The location of the directory containing the log files should be defined in the variable +LOGREPO+. For instance:
+
+--------------------------------------
+export LOGREPO=~/swift-logs/
+--------------------------------------
+
+The command used for connecting to the database should be defined in the variable SQLCMD. For example, to connect to CI's PostgreSQL? database:
+
+--------------------------------------
+export SQLCMD="psql -h db.ci.uchicago.edu -U provdb provdb"
+--------------------------------------
+
+The script +./swift-prov-import-all-logs+ will import provenance information from the log files in +$LOGREPO+ into the database. One can use +./swift-prov-import-all-logs rebuild+ to reinitialize database before importing provenance information. 
+
+== Swift Configuration
+
+To enable the generation of provenance information in Swift's log files and to trasfer wrapper logs back to the submitting machine for runtime behavior information extraction the options +provenance.log+ and wrapperlog.always.transfer=true should be set to true in +etc/swift.properties+:
+
+--------------------------------------
+provenance.log=true
+wrapperlog.always.transfer=true
+--------------------------------------
+
+If Swift's SVN revision is 3417 or greater, the following options should be set in +etc/log4j.properties+:
+
+--------------------------------------
+log4j.logger.swift=DEBUG
+log4j.logger.org.griphyn.vdl.karajan.lib=DEBUG
+--------------------------------------
+
+== Demonstration: Image Rendering Workflow
+
+The workflow creates a number of scene files that are rendered using the +c-ray+ application. The images generated are given as input to the +convert+ application to generate a movie.  
+
+The Swift scripts can be downloaded from:
+
+--------------------------------------
+http://www.lncc.br/~lgadelha/c-ray-swift.tgz
+--------------------------------------
+
+The image rendering application source code can be downloaded from:
+
+--------------------------------------
+http://www.futuretech.blinkenlights.nl/depot/c-ray-1.1.tar.gz
+--------------------------------------
+
+The workflow also requires ImageMagick with ffmpeg support. It accepts the following arguments:
+
+- +resolution+: the image resolution in pixels, default is 800x600, 
+- +threads+: the number of execution threads of the image rendering application (c-ray), default is 1,  
+- +steps+: number of frames to be rendered, default is 10,
+- +delay+: delay between video frames in hundreths of a second, default is 0,
+- +quality+: quality of MPEG video, default is 75.
+
+To run the workflow one can use for instance:
+
+--------------------------------------
+$ swift -sites.file sites.xml -tc.file tc.data c-ray.swift -resolution=1366x768 -threads=1 -steps=30 -quality=95 -delay=50
+--------------------------------------
+
+To import provenance into the database and connect to the database one can use:
+
+--------------------------------------
+$ swift-prov-import-all-logs
+$ psql provdb
+--------------------------------------
+
+=== Overview of main tables, views, and functions ===
+
+To know which script runs are recorded in the database one can query the +script_run_summary+ view:
+
+--------------------------------------
+provdb=> select * from script_run_summary;
+
+           id            | swift_version | cog_version | final_state |         start_time         | duration | script_filename 
+-------------------------+---------------+-------------+-------------+----------------------------+----------+-----------------
+ c-ray-run000-2046746221 | 7447          | 3852        | SUCCESS     | 2014-01-28 10:28:47.692-06 |  348.127 | c-ray.swift
+ c-ray-run001-1976615697 | 7447          | 3852        | SUCCESS     | 2014-01-28 11:41:40.933-06 |   53.007 | c-ray.swift
+--------------------------------------
+
+The +dataset_all+ view stores information about all datasets manipulated during a script run:
+
+--------------------------------------
+provdb=> select * from dataset_all;
+
+                 dataset_id                  | dataset_type |  dataset_value  |       dataset_filename       
+---------------------------------------------+--------------+-----------------+------------------------------
+ dataset:20140128-1028-66i4t8x1:720000000026 | mapped       |                 | file://localhost/tscene
+ dataset:20140128-1028-66i4t8x1:720000000041 | mapped       |                 | file://localhost/output.mpeg
+ dataset:20140128-1028-66i4t8x1:720000000001 | primitive    | 1               | 
+ dataset:20140128-1028-66i4t8x1:720000000002 | primitive    | .ppm            | 
+ dataset:20140128-1028-66i4t8x1:720000000003 | primitive    | 800x600         | 
+ dataset:20140128-1028-66i4t8x1:720000000004 | primitive    | resolution      | 
+ dataset:20140128-1028-66i4t8x1:720000000005 | primitive    | steps           | 
+ ...
+--------------------------------------
+ 
+The +function_call+ view stores information about all functions called during a script run:
+
+--------------------------------------
+                      id                       |          name           |    type     | app_catalog_name |      script_run_id      |         start_time         | duration | final_state 
+-----------------------------------------------+-------------------------+-------------+------------------+-------------------------+----------------------------+----------+-------------
+ c-ray-run000-2046746221:R                     | c-ray-run000-2046746221 | rootthread  |                  | c-ray-run000-2046746221 |                            |          | 
+ c-ray-run000-2046746221:R-12-0x2              | generate                | execute     | genscenes        | c-ray-run000-2046746221 | 2014-01-28 10:28:49.706-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-1x2              | render                  | execute     | cray             | c-ray-run000-2046746221 | 2014-01-28 10:29:27.142-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-3-0              | generate                | execute     | genscenes        | c-ray-run000-2046746221 | 2014-01-28 10:28:49.633-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-1-0              | generate                | execute     | genscenes        | c-ray-run000-2046746221 | 2014-01-28 10:28:49.551-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-2-1              | render                  | execute     | cray             | c-ray-run000-2046746221 | 2014-01-28 10:30:29.331-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-3-1              | render                  | execute     | cray             | c-ray-run000-2046746221 | 2014-01-28 10:29:39.597-06 |        0 | END_SUCCESS
+ c-ray-run000-2046746221:R-12-0-1              | render                  | execute     | cray             | c-ray-run000-2046746221 | 2014-01-28 10:29:59.428-06 |        0 | END_SUCCESS
+ c-ray-run001-1976615697:451007                | arg                     | function    |                  | c-ray-run001-1976615697 |                            |          | 
+ c-ray-run001-1976615697:451008                | toint                   | function    |                  | c-ray-run001-1976615697 |                            |          | 
+ c-ray-run001-1976615697:451009                | filename                | function    |                  | c-ray-run001-1976615697 |                            |          | 
+ c-ray-run001-1976615697:451010                | filename                | function    |                  | c-ray-run001-1976615697 |                            |          | 
+ ...
+--------------------------------------
+
+The +app_exec+ table has information about external application executions, which are triggered by app functions. Information from the +proc+ filesystem is also gathered. 
+
+--------------------------------------
+provdb=> select * from app_exec ;
+                     id                     |          app_fun_call_id          |   start_time   |      duration      | final_state |   site    | real_secs | kernel_secs | user_secs | percent_cpu | max_rss | avg_rss | avg_tot_vm | avg_priv_data | avg_priv_stack | avg_shared_text | page_size | major_pgfaults | minor_pgfaults | swaps | invol_context_switches | vol_waits | fs_reads | fs_writes | sock_recv | sock_send | signals | exit_status 
+--------------------------------------------+-----------------------------------+----------------+--------------------+-------------+-----------+-----------+-------------+-----------+-------------+---------+---------+------------+---------------+----------------+-----------------+-----------+----------------+----------------+-------+------------------------+-----------+----------+-----------+-----------+-----------+---------+-------------
+ c-ray-run000-2046746221:genscenes-1n25smll | c-ray-run000-2046746221:R-12-5-0  | 1390926529.384 |  0.165999889373779 | JOB_END     | localhost |      0.00 |        0.00 |      0.00 |          28 |    4912 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |           2170 |     0 |                      8 |        20 |        0 |        48 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:genscenes-3n25smll | c-ray-run000-2046746221:R-12-7-0  | 1390926529.553 | 0.0770001411437988 | JOB_END     | localhost |      0.00 |        0.00 |      0.00 |          33 |    4912 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |           2171 |     0 |                      9 |        25 |        0 |        48 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:cray-po25smll      | c-ray-run000-2046746221:R-12-29-1 | 1390926838.121 |   24.9839999675751 | JOB_END     | localhost |     24.88 |        0.02 |     24.75 |          99 |   19936 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            767 |     0 |                   5422 |         3 |        0 |      6160 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:cray-xn25smll      | c-ray-run000-2046746221:R-12-1x2  | 1390926530.803 |   36.3389999866486 | JOB_END     | localhost |     36.27 |        0.00 |     36.14 |          99 |   19936 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            767 |     0 |                   6305 |         2 |        0 |      6168 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:cray-zn25smll      | c-ray-run000-2046746221:R-12-3-1  | 1390926555.230 |   24.3659999370575 | JOB_END     | localhost |     24.31 |        0.01 |     24.23 |          99 |   19952 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            768 |     0 |                   3450 |         3 |        0 |      6160 |         0 |         0 |       0 |           0
+ c-ray-run001-1976615697:cray-kn22vmll      | c-ray-run001-1976615697:R-12-1x2  | 1390930903.442 |   9.79500007629395 | JOB_END     | localhost |      9.71 |        0.00 |      9.69 |          99 |   11056 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            723 |     0 |                   1613 |         3 |        0 |      2824 |         0 |         0 |       0 |           0
+ c-ray-run001-1976615697:cray-ln22vmll      | c-ray-run001-1976615697:R-12-9-1  | 1390930903.442 |    9.7960000038147 | JOB_END     | localhost |      9.72 |        0.00 |      9.71 |          99 |   11056 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            723 |     0 |                    979 |         3 |        0 |      2824 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:cray-7o25smll      | c-ray-run000-2046746221:R-12-13-1 | 1390926633.314 |   25.8210000991821 | JOB_END     | localhost |     25.73 |        0.00 |     25.59 |          99 |   28016 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |            766 |     0 |                   3665 |         3 |        0 |      6160 |         0 |         0 |       0 |           0
+ c-ray-run000-2046746221:convert-qo25smll   | c-ray-run000-2046746221:R-13      | 1390926863.116 |   12.6180000305176 | JOB_END     | localhost |     12.38 |        0.61 |     14.21 |         119 | 2049520 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |          42071 |     0 |                   2120 |       233 |        0 |    354104 |         0 |         0 |       0 |           0
+ c-ray-run001-1976615697:convert-un22vmll   | c-ray-run001-1976615697:R-13      | 1390930953.408 |  0.449000120162964 | JOB_END     | localhost |      0.31 |        0.08 |      1.01 |         346 |  343024 |       0 |          0 |             0 |              0 |               0 |      4096 |              0 |          16820 |     0 |                    224 |       144 |        0 |      1464 |         0 |         0 |       0 |           0
+--------------------------------------
+
+The +provenance_summary+ view contains the main facts related to provenance, i.e. what each function call read as input and produced as output. The first two columns identifiy the script run. The next columns, up to +input_dataset_filename+, describe the input dataset. The next three columns identify the function called. The remaining columns describe the output dataset. This is the query output on this view:
+
+--------------------------------------
+provdb=> select * from provenance_summary;
+
+      script_run_id      | script_filename |              input_dataset_id               | input_dataset_type | input_parameter_name | input_dataset_value |    input_dataset_filename    |               function_call_id                | function_call_type |   function_call_name    |              output_dataset_id              | output_parameter_name | output_dataset_type | output_dataset_value |   output_dataset_filename    
+-------------------------+-----------------+---------------------------------------------+--------------------+----------------------+---------------------+------------------------------+-----------------------------------------------+--------------------+-------------------------+---------------------------------------------+-----------------------+---------------------+----------------------+------------------------------
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000013 | primitive          | undefined            | threads             |                              | c-ray-run001-1976615697:451000                | function           | arg                     | dataset:20140128-1141-f0xuh6m8:720000000042 | result                | primitive           | 1                    | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000042 | primitive          | undefined            | 1                   |                              | c-ray-run001-1976615697:451002                | function           | toint                   | dataset:20140128-1141-f0xuh6m8:720000000043 | result                | primitive           | 1                    | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000026 | mapped             | undefined            |                     | file://localhost/tscene      | c-ray-run001-1976615697:451009                | function           | filename                | dataset:20140128-1141-f0xuh6m8:720000000068 | result                | primitive           | tscene               | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000041 | mapped             | undefined            |                     | file://localhost/output.mpeg | c-ray-run001-1976615697:451050                | function           | filename                | dataset:20140128-1141-f0xuh6m8:720000000133 | result                | primitive           | output.mpeg          | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000131 | primitive          | element              | scene.0010.ppm      |                              | c-ray-run001-1976615697:f0xuh6m8:720000000132 | constructor        | constructor             | dataset:20140128-1141-f0xuh6m8:720000000132 | collection            | collection          |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     |                                             |                    |                      |                     |                              | c-ray-run001-1976615697:R                     | rootthread         | c-ray-run001-1976615697 | dataset:20140128-1141-f0xuh6m8:720000000041 | output_movie          | mapped              |                      | file://localhost/output.mpeg
+ c-ray-run001-1976615697 | c-ray.swift     |                                             |                    |                      |                     |                              | c-ray-run001-1976615697:R                     | rootthread         | c-ray-run001-1976615697 | dataset:20140128-1141-f0xuh6m8:720000000026 | template              | mapped              |                      | file://localhost/tscene
+ c-ray-run001-1976615697 | c-ray.swift     |                                             |                    |                      |                     |                              | c-ray-run001-1976615697:R                     | rootthread         | c-ray-run001-1976615697 | dataset:20140128-1141-f0xuh6m8:720000000025 | quality               | primitive           | 75                   | 
+ c-ray-run001-1976615697 | c-ray.swift     |                                             |                    |                      |                     |                              | c-ray-run001-1976615697:R                     | rootthread         | c-ray-run001-1976615697 | dataset:20140128-1141-f0xuh6m8:720000000024 | delay                 | primitive           | 0                    | 
+ c-ray-run001-1976615697 | c-ray.swift     |                                             |                    |                      |                     |                              | c-ray-run001-1976615697:R                     | rootthread         | c-ray-run001-1976615697 | dataset:20140128-1141-f0xuh6m8:720000000023 | resolution            | primitive           | 800x600              | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000054 | primitive          | i                    | 3                   |                              | c-ray-run001-1976615697:R-12-2-0              | execute            | generate                | dataset:20140128-1141-f0xuh6m8:720000000060 | out                   | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000026 | mapped             | t                    |                     | file://localhost/tscene      | c-ray-run001-1976615697:R-12-2-0              | execute            | generate                | dataset:20140128-1141-f0xuh6m8:720000000060 | out                   | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000022 | primitive          | total                | 10                  |                              | c-ray-run001-1976615697:R-12-2-0              | execute            | generate                | dataset:20140128-1141-f0xuh6m8:720000000060 | out                   | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000021 | primitive          | t                    | 1                   |                              | c-ray-run001-1976615697:R-12-2-1              | execute            | render                  | dataset:20140128-1141-f0xuh6m8:720000000061 | o                     | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000023 | primitive          | r                    | 800x600             |                              | c-ray-run001-1976615697:R-12-2-1              | execute            | render                  | dataset:20140128-1141-f0xuh6m8:720000000061 | o                     | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000060 | other              | i                    |                     |                              | c-ray-run001-1976615697:R-12-2-1              | execute            | render                  | dataset:20140128-1141-f0xuh6m8:720000000061 | o                     | other               |                      | 
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000025 | primitive          | q                    | 75                  |                              | c-ray-run001-1976615697:R-13                  | execute            | convert                 | dataset:20140128-1141-f0xuh6m8:720000000041 | o                     | mapped              |                      | file://localhost/output.mpeg
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000024 | primitive          | d                    | 0                   |                              | c-ray-run001-1976615697:R-13                  | execute            | convert                 | dataset:20140128-1141-f0xuh6m8:720000000041 | o                     | mapped              |                      | file://localhost/output.mpeg
+ c-ray-run001-1976615697 | c-ray.swift     | dataset:20140128-1141-f0xuh6m8:720000000040 | collection         | i                    |                     |                              | c-ray-run001-1976615697:R-13                  | execute            | convert                 | dataset:20140128-1141-f0xuh6m8:720000000041 | o                     | mapped              |                      | file://localhost/output.mpeg
+ ...
+--------------------------------------
+
+An +ancestors+ recursive SQL function can traverse the provenance graph defined by the production/consumption relationships (the edges of this graph can be obtained with the +provenance_graph_edge+ view) between datasets and function calls. For instance, for the dataset +dataset:20140128-1141-f0xuh6m8:720000000041+ associated to the movie file produced at the end of the workflow (last tuple in the previous query output), +ancestors+ returns the following function calls and datasets: 
+
+
+--------------------------------------
+provdb=> select * from ancestors('dataset:20140128-1141-f0xuh6m8:720000000041');
+
+                   ancestors                   
+----------------------------------------------+
+ c-ray-run001-1976615697:R
+ c-ray-run001-1976615697:R-13
+ dataset:20140128-1141-f0xuh6m8:720000000040
+ dataset:20140128-1141-f0xuh6m8:720000000024
+ dataset:20140128-1141-f0xuh6m8:720000000025
+ c-ray-run001-1976615697:f0xuh6m8:720000000040
+ dataset:20140128-1141-f0xuh6m8:720000000058
+ dataset:20140128-1141-f0xuh6m8:720000000059
+ dataset:20140128-1141-f0xuh6m8:720000000061
+ dataset:20140128-1141-f0xuh6m8:720000000099
+ dataset:20140128-1141-f0xuh6m8:720000000095
+ dataset:20140128-1141-f0xuh6m8:720000000067
+ dataset:20140128-1141-f0xuh6m8:720000000073
+ dataset:20140128-1141-f0xuh6m8:720000000083
+ dataset:20140128-1141-f0xuh6m8:720000000085
+ dataset:20140128-1141-f0xuh6m8:720000000087
+ c-ray-run001-1976615697:R-12-0-1
+ c-ray-run001-1976615697:R-12-1x2
+ c-ray-run001-1976615697:R-12-2-1
+ c-ray-run001-1976615697:R-12-5-1
+ c-ray-run001-1976615697:R-12-6-1
+ c-ray-run001-1976615697:R-12-7-1
+ c-ray-run001-1976615697:R-12-8-1
+ c-ray-run001-1976615697:R-12-9-1
+ c-ray-run001-1976615697:R-12-4-1
+ c-ray-run001-1976615697:R-12-3-1
+ dataset:20140128-1141-f0xuh6m8:720000000056
+ dataset:20140128-1141-f0xuh6m8:720000000057
+ dataset:20140128-1141-f0xuh6m8:720000000023
+ dataset:20140128-1141-f0xuh6m8:720000000021
+ dataset:20140128-1141-f0xuh6m8:720000000060
+ dataset:20140128-1141-f0xuh6m8:720000000066
+ dataset:20140128-1141-f0xuh6m8:720000000072
+ dataset:20140128-1141-f0xuh6m8:720000000078
+ dataset:20140128-1141-f0xuh6m8:720000000084
+ dataset:20140128-1141-f0xuh6m8:720000000086
+ dataset:20140128-1141-f0xuh6m8:720000000092
+ dataset:20140128-1141-f0xuh6m8:720000000096
+ c-ray-run001-1976615697:R-12-2-0
+ c-ray-run001-1976615697:R-12-0x2
+ c-ray-run001-1976615697:R-12-1-0
+ c-ray-run001-1976615697:R-12-6-0
+ c-ray-run001-1976615697:R-12-7-0
+ c-ray-run001-1976615697:R-12-8-0
+ c-ray-run001-1976615697:R-12-9-0
+ c-ray-run001-1976615697:R-12-5-0
+ c-ray-run001-1976615697:R-12-4-0
+ c-ray-run001-1976615697:R-12-3-0
+ dataset:20140128-1141-f0xuh6m8:720000000026
+ dataset:20140128-1141-f0xuh6m8:720000000054
+ dataset:20140128-1141-f0xuh6m8:720000000022
+ dataset:20140128-1141-f0xuh6m8:720000000052
+ dataset:20140128-1141-f0xuh6m8:720000000053
+ dataset:20140128-1141-f0xuh6m8:720000000063
+ dataset:20140128-1141-f0xuh6m8:720000000064
+ dataset:20140128-1141-f0xuh6m8:720000000065
+ dataset:20140128-1141-f0xuh6m8:720000000076
+ dataset:20140128-1141-f0xuh6m8:720000000077
+ dataset:20140128-1141-f0xuh6m8:720000000062
+ dataset:20140128-1141-f0xuh6m8:720000000055
+--------------------------------------
+
+The main provenance database entities (script run, function call, dataset) can be annotated with a key-value pair. These can be added manually or by some _ad-hoc_ script. For instance, for the OOPS workflow there is a script, located in the +apps/OOPS+ directory in the provenance scripts directory, that can process files manipulated by in the script run to extract domain-specific information as annotations. The following SQL commands simulates creating annotations in the underlying database tables for annotations, and lists the annotations created querying the +annotation+ view:
+
+--------------------------------------
+provdb=> insert into annot_dataset_text values ('dataset:20140128-1141-f0xuh6m8:720000000026', 'geometric_object', 'sphere');
+provdb=> insert into annot_app_exec_text values ('c-ray-run000-2046746221:cray-xn25smll', 'version', '1.1');
+provdb=> insert into annot_dataset_num values ('dataset:20140128-1141-f0xuh6m8:720000000041', 'fps', 25);
+
+provdb=> select * from annotation;
+                  entity_id                  | entity_type |       key        | numeric_value | text_value 
+---------------------------------------------+-------------+------------------+---------------+------------
+ dataset:20140128-1141-f0xuh6m8:720000000026 | dataset     | geometric_object |               | sphere
+ c-ray-run000-2046746221:cray-xn25smll       | app_exec    | version          |               | 1.1
+ dataset:20140128-1141-f0xuh6m8:720000000041 | dataset     | fps              |            25 | 
+--------------------------------------
+
+The +provenance_all+ _mega view_ contains most of the information stored in the underlying provenance database tables. For instance, the following queries compare different runs according to specific parameter and annotation values:
+
+--------------------------------------
+provdb=> select  script_run_id, output_parameter_name, output_dataset_value 
+         from    provenance_all 
+         where   output_parameter_name='resolution';
+
+      script_run_id      | output_parameter_name | output_dataset_value 
+-------------------------+-----------------------+----------------------
+ c-ray-run001-1976615697 | resolution            | 800x600
+ c-ray-run000-2046746221 | resolution            | 1366x768
+--------------------------------------
+
+--------------------------------------
+provdb=> select script_run_id, output_parameter_name, output_dataset_value 
+         from   provenance_all 
+         where  output_parameter_name='quality';
+
+      script_run_id      | output_parameter_name | output_dataset_value 
+-------------------------+-----------------------+----------------------
+ c-ray-run001-1976615697 | quality               | 75
+ c-ray-run000-2046746221 | quality               | 95
+--------------------------------------
+
+--------------------------------------
+provdb=> select distinct  script_run_id, output_dataset_filename, output_dataset_annotation_key, output_dataset_annotation_numeric_value 
+         from             provenance_all 
+         where            output_dataset_annotation_key='fps';
+
+      script_run_id      |   output_dataset_filename    | output_dataset_annotation_key | output_dataset_annotation_numeric_value 
+-------------------------+------------------------------+-------------------------------+-----------------------------------------
+ c-ray-run000-2046746221 | file://localhost/output.mpeg | fps                           |                                      60
+ c-ray-run001-1976615697 | file://localhost/output.mpeg | fps                           |                                      25
+--------------------------------------

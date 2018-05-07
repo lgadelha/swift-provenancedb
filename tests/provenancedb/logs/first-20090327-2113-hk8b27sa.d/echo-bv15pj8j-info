@@ -1,0 +1,32 @@
+Progress  2009-03-27 21:13:35.N+0000  LOG_START
+
+_____________________________________________________________________________
+
+        Wrapper
+_____________________________________________________________________________
+
+Job directory mode is: link on shared filesystem
+EXTRAINFO=monkey
+DIR=jobs/b/echo-bv15pj8j
+EXEC=/bin/echo
+STDIN=
+STDOUT=hello.txt
+STDERR=stderr.txt
+DIRS=
+INF=
+OUTF=hello.txt
+KICKSTART=
+ARGS=Hello, world!
+ARGC=1
+Progress  2009-03-27 21:13:35.N+0000  CREATE_JOBDIR
+Created job directory: jobs/b/echo-bv15pj8j
+Progress  2009-03-27 21:13:35.N+0000  CREATE_INPUTDIR
+Progress  2009-03-27 21:13:35.N+0000  LINK_INPUTS
+Progress  2009-03-27 21:13:35.N+0000  EXECUTE
+Moving back to workflow directory /var/tmp/first-20090327-2113-hk8b27sa
+Progress  2009-03-27 21:13:35.N+0000  EXECUTE_DONE
+Job ran successfully
+Progress  2009-03-27 21:13:35.N+0000  COPYING_OUTPUTS
+Progress  2009-03-27 21:13:35.N+0000  RM_JOBDIR
+Progress  2009-03-27 21:13:35.N+0000  TOUCH_SUCCESS
+Progress  2009-03-27 21:13:35.N+0000  END

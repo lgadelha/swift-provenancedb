@@ -1,0 +1,67 @@
+provdb=> select * from script_run_summary ;
+
+           id            | swift_version | cog_version | final_state |         start_time         | duration | script_filename 
+-------------------------+---------------+-------------+-------------+----------------------------+----------+-----------------
+ c-ray-run002-1363755828 | 7447          | 3852        | SUCCESS     | 2014-01-24 11:06:41.583-06 |  646.076 | c-ray.swift
+ c-ray-run000-130162318  | 7447          | 3852        | SUCCESS     | 2014-01-24 10:57:06.778-06 |  101.223 | c-ray.swift
+ c-ray-run001-3873155504 | 7447          | 3852        | SUCCESS     | 2014-01-24 11:03:28.559-06 |   53.199 | c-ray.swift
+
+provdb=> select * from function_call;
+
+provdb=> select * from application_execution ;
+
+                     id                     |         function_call_id          |         start_time         |      duration      | final_state |   site    
+--------------------------------------------+-----------------------------------+----------------------------+--------------------+-------------+-----------
+ c-ray-run002-1363755828:cray-1kgc9gll      | c-ray-run002-1363755828:R-10-14-1 | 2014-01-24 11:08:43.916-06 |   37.2090001106262 | JOB_END     | localhost
+ c-ray-run002-1363755828:cray-2kgc9gll      | c-ray-run002-1363755828:R-10-6-1  | 2014-01-24 11:08:59.65-06  |   41.0049998760223 | JOB_END     | localhost
+ c-ray-run002-1363755828:cray-3kgc9gll      | c-ray-run002-1363755828:R-10-57-1 | 2014-01-24 11:08:59.651-06 |   42.8450000286102 | JOB_END     | localhost
+ ...
+
+
+
+
+                      id                  |          name           |    type     | app_catalog_name |      script_run_id      |         start_time         | duration | final_state | scratch 
+------------------------------------------+-------------------------+-------------+------------------+-------------------------+----------------------------+----------+-------------+---------
+ c-ray-run002-1363755828:R                | c-ray-run002-1363755828 | rootthread  |                  | c-ray-run002-1363755828 |                            |          |             | 
+ c-ray-run002-1363755828:R-10-0-1         |                         | execute     | cray             | c-ray-run002-1363755828 | 2014-01-24 11:07:47.206-06 |        0 | END_SUCCESS | 
+ c-ray-run002-1363755828:R-10-0x2         |                         | execute     | genscenes        | c-ray-run002-1363755828 | 2014-01-24 11:06:43.575-06 |        0 | END_SUCCESS | 
+ c-ray-run002-1363755828:R-10-1-0         |                         | execute     | genscenes        | c-ray-run002-1363755828 | 2014-01-24 11:06:43.492-06 |        0 | END_SUCCESS | 
+ ...
+
+provdb=> select * from dataset_primitive_and_mapped;
+
+                dataset_id                  | dataset_type |  dataset_value  |    dataset_filename     
+---------------------------------------------+--------------+-----------------+-------------------------
+ dataset:20140124-1106-izjbtbq4:720000000018 | mapped       |                 | file://localhost/tscene
+ dataset:20140124-1103-56f8sjb4:720000000018 | mapped       |                 | file://localhost/tscene
+ dataset:20140124-1106-izjbtbq4:720000000001 | primitive    | 1               | 
+ dataset:20140124-1106-izjbtbq4:720000000002 | primitive    | .ppm            | 
+ ...
+
+select input_parameter_name, input_dataset_value, input_dataset_filename, function_call_name, output_parameter_name, output_dataset_value, output_dataset_filename from provenance_all;
+
+provdb=> select * from ancestors('dataset:20140124-1106-izjbtbq4:720000000458');
+
+                  ancestors                  
+---------------------------------------------
+ c-ray-run002-1363755828:451244
+ dataset:20140124-1106-izjbtbq4:720000000332
+ c-ray-run002-1363755828:R-10-55-1
+ dataset:20140124-1106-izjbtbq4:720000000329
+ dataset:20140124-1106-izjbtbq4:720000000017
+ dataset:20140124-1106-izjbtbq4:720000000015
+ c-ray-run002-1363755828:R
+ c-ray-run002-1363755828:R-10-55-0
+ dataset:20140124-1106-izjbtbq4:720000000018
+ dataset:20140124-1106-izjbtbq4:720000000110
+ dataset:20140124-1106-izjbtbq4:720000000016
+(11 rows)
+
+provdb=> insert into annot_dataset_num values ('dataset:20140124-1106-izjbtbq4:720000000458', 'final_temperature', 10.33);
+
+provdb=> select * from annotation;
+                  entity_id                  | entity_type |        key        | numeric_value | text_value 
+---------------------------------------------+-------------+-------------------+---------------+------------
+ dataset:20140124-1106-izjbtbq4:720000000458 | dataset     | final_temperature |         10.33 | 
+
+

@@ -1,0 +1,13 @@
+<config>
+
+
+  <pool handle="localhost">
+    <filesystem provider="local" />
+    <execution provider="local" />
+    <workdirectory >/var/tmp</workdirectory>
+    <profile namespace="karajan" key="jobThrottle">0.01</profile>
+  </pool>
+
+</config>
+
+

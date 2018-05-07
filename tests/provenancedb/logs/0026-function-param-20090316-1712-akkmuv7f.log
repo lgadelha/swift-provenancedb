@@ -1,0 +1,84 @@
+2009-03-16 17:12:05,224+0100 INFO  Loader 0026-function-param.swift: source file is new. Recompiling.
+2009-03-16 17:12:05,964+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:12:05,971+0100 INFO  VariableScope New scope 11643677 with no parent.
+2009-03-16 17:12:05,983+0100 INFO  VariableScope New scope 14085672 with no parent.
+2009-03-16 17:12:05,983+0100 INFO  VariableScope New scope 11373492 with no parent.
+2009-03-16 17:12:05,986+0100 INFO  VariableScope Adding variable r of type int to scope 11373492
+2009-03-16 17:12:05,987+0100 INFO  VariableScope Adding variable a of type int to scope 14085672
+2009-03-16 17:12:05,987+0100 INFO  VariableScope Adding variable b of type int to scope 14085672
+2009-03-16 17:12:05,987+0100 INFO  VariableScope New scope 6672059 with no parent.
+2009-03-16 17:12:06,050+0100 INFO  VariableScope added 88000 to variable r in scope 6672059
+2009-03-16 17:12:06,056+0100 INFO  VariableScope New scope 15013033 with no parent.
+2009-03-16 17:12:06,062+0100 INFO  VariableScope Adding internal variable swift#callintermediate of type int to scope 15013033
+2009-03-16 17:12:06,072+0100 INFO  VariableScope Variable swift#callintermediate is local but has no template.
+2009-03-16 17:12:06,072+0100 INFO  VariableScope New scope 1073441 with no parent.
+2009-03-16 17:12:06,072+0100 INFO  VariableScope Adding internal variable swift#callintermediate of type int to scope 1073441
+2009-03-16 17:12:06,073+0100 INFO  VariableScope New scope 5817271 with no parent.
+2009-03-16 17:12:06,073+0100 INFO  VariableScope Adding internal variable swift#callintermediate of type int to scope 5817271
+2009-03-16 17:12:06,073+0100 INFO  VariableScope Variable swift#callintermediate is local but has no template.
+2009-03-16 17:12:06,074+0100 INFO  VariableScope New scope 10037029 with no parent.
+2009-03-16 17:12:06,074+0100 INFO  VariableScope Adding internal variable swift#callintermediate of type int to scope 10037029
+2009-03-16 17:12:06,075+0100 INFO  VariableScope Variable swift#callintermediate is local but has no template.
+2009-03-16 17:12:06,075+0100 INFO  VariableScope Variable swift#callintermediate is local but has no template.
+2009-03-16 17:12:07,075+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:12:07,075+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:12:07,283+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:12:07,842+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:12:07,843+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1712-akkmuv7f
+2009-03-16 17:12:07,870+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000001 type int value=2.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,870+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000001 path=$
+2009-03-16 17:12:07,870+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000001 VALUE=2
+2009-03-16 17:12:07,879+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000001
+2009-03-16 17:12:07,880+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000002 type int value=1.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,880+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000002 path=$
+2009-03-16 17:12:07,880+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000002 VALUE=1
+2009-03-16 17:12:07,880+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000002
+2009-03-16 17:12:07,903+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000003
+2009-03-16 17:12:07,903+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000004
+2009-03-16 17:12:07,904+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000005
+2009-03-16 17:12:07,904+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000006
+2009-03-16 17:12:07,906+0100 INFO  add 
+2009-03-16 17:12:07,906+0100 INFO  add 
+2009-03-16 17:12:07,906+0100 INFO  add 
+2009-03-16 17:12:07,907+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000007 type int value=2.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,907+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000007 path=$
+2009-03-16 17:12:07,907+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000007 VALUE=2
+2009-03-16 17:12:07,908+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000004 type int with no value at dataset=tmp (not closed) to 2
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000004 type int value=2.0 dataset=tmp (closed)
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000004 path=$
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000004 VALUE=2
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000008 type int value=2.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,908+0100 INFO  CloseDataset Closing 2
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000008 path=$
+2009-03-16 17:12:07,908+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000008 VALUE=2
+2009-03-16 17:12:07,908+0100 INFO  add 
+2009-03-16 17:12:07,908+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000005 type int with no value at dataset=tmp (not closed) to 2
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000005 type int value=2.0 dataset=tmp (closed)
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000005 path=$
+2009-03-16 17:12:07,909+0100 WARN  trace SwiftScript trace: 2
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000005 VALUE=2
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000009 type int value=4.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000009 path=$
+2009-03-16 17:12:07,909+0100 INFO  CloseDataset Closing 2
+2009-03-16 17:12:07,909+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000009 VALUE=4
+2009-03-16 17:12:07,909+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000006 type int with no value at dataset=tmp (not closed) to 4
+2009-03-16 17:12:07,910+0100 INFO  add 
+2009-03-16 17:12:07,910+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000006 type int value=4.0 dataset=tmp (closed)
+2009-03-16 17:12:07,910+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000006 path=$
+2009-03-16 17:12:07,910+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000006 VALUE=4
+2009-03-16 17:12:07,910+0100 INFO  CloseDataset Closing 4
+2009-03-16 17:12:07,910+0100 INFO  add 
+2009-03-16 17:12:07,911+0100 INFO  add 
+2009-03-16 17:12:07,911+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000010 type int value=6.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:12:07,911+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000010 path=$
+2009-03-16 17:12:07,911+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000010 VALUE=6
+2009-03-16 17:12:07,911+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000003 type int with no value at dataset=tmp (not closed) to 6
+2009-03-16 17:12:07,911+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000003 type int value=6.0 dataset=tmp (closed)
+2009-03-16 17:12:07,911+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000003 path=$
+2009-03-16 17:12:07,912+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1712-tx4xk8ed:720000000003 VALUE=6
+2009-03-16 17:12:07,912+0100 INFO  CloseDataset Closing 6
+2009-03-16 17:12:07,912+0100 INFO  add 
+2009-03-16 17:12:07,912+0100 WARN  trace SwiftScript trace: 6
+2009-03-16 17:12:07,924+0100 INFO  vdl:cleanups START cleanups=[]
+2009-03-16 17:12:07,928+0100 DEBUG Loader Swift finished with no errors

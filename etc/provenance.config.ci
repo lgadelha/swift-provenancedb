@@ -1,0 +1,6 @@
+# file to source that sets variables for the various paths that are
+# presently hardcoded
+
+export LOGREPO=~/swift-logs
+export SQLCMD="psql -U provdb -h db.ci.uchicago.edu provdb"
+

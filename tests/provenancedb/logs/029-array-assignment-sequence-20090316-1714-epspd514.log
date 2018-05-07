@@ -1,0 +1,320 @@
+2009-03-16 17:14:26,837+0100 INFO  Loader 029-array-assignment-sequence.swift: source file is new. Recompiling.
+2009-03-16 17:14:27,546+0100 INFO  Karajan Validation of XML intermediate file was successful
+2009-03-16 17:14:27,554+0100 INFO  VariableScope New scope 13064693 with no parent.
+2009-03-16 17:14:27,591+0100 INFO  VariableScope Adding variable a of type int to scope 13064693
+2009-03-16 17:14:27,592+0100 INFO  VariableScope Adding variable b of type int to scope 13064693
+2009-03-16 17:14:27,592+0100 INFO  VariableScope Adding variable c of type int to scope 13064693
+2009-03-16 17:14:27,593+0100 INFO  VariableScope Adding variable d of type int to scope 13064693
+2009-03-16 17:14:27,593+0100 INFO  VariableScope Adding variable e of type int to scope 13064693
+2009-03-16 17:14:27,594+0100 INFO  VariableScope Adding variable f of type int to scope 13064693
+2009-03-16 17:14:27,594+0100 INFO  VariableScope Adding variable g of type int to scope 13064693
+2009-03-16 17:14:27,633+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,633+0100 INFO  VariableScope thats the declaration for a
+2009-03-16 17:14:27,634+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,634+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,634+0100 INFO  VariableScope thats the declaration for b
+2009-03-16 17:14:27,635+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,635+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b" waitfor="88001">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,636+0100 INFO  VariableScope looking at declaration <set name="c">
+  <vdl:new type="int" dbgname="c">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">c-294f329e-31da-48ba-9397-aa207efbb25e</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,636+0100 INFO  VariableScope thats the declaration for c
+2009-03-16 17:14:27,636+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,637+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b" waitfor="88001">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,638+0100 INFO  VariableScope looking at declaration <set name="c">
+  <vdl:new type="int" dbgname="c" waitfor="88002">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">c-294f329e-31da-48ba-9397-aa207efbb25e</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,638+0100 INFO  VariableScope looking at declaration <set name="d">
+  <vdl:new type="int" dbgname="d">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">d-58d6073c-f463-4109-8fff-953e013f477a</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,638+0100 INFO  VariableScope thats the declaration for d
+2009-03-16 17:14:27,639+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,639+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b" waitfor="88001">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,639+0100 INFO  VariableScope looking at declaration <set name="c">
+  <vdl:new type="int" dbgname="c" waitfor="88002">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">c-294f329e-31da-48ba-9397-aa207efbb25e</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,640+0100 INFO  VariableScope looking at declaration <set name="d">
+  <vdl:new type="int" dbgname="d" waitfor="88003">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">d-58d6073c-f463-4109-8fff-953e013f477a</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,640+0100 INFO  VariableScope looking at declaration <set name="e">
+  <vdl:new type="int" dbgname="e">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">e-86fc285e-6eb1-4be1-9713-35464e6a9d6d</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,640+0100 INFO  VariableScope thats the declaration for e
+2009-03-16 17:14:27,643+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,643+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b" waitfor="88001">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,643+0100 INFO  VariableScope looking at declaration <set name="c">
+  <vdl:new type="int" dbgname="c" waitfor="88002">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">c-294f329e-31da-48ba-9397-aa207efbb25e</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,643+0100 INFO  VariableScope looking at declaration <set name="d">
+  <vdl:new type="int" dbgname="d" waitfor="88003">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">d-58d6073c-f463-4109-8fff-953e013f477a</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,644+0100 INFO  VariableScope looking at declaration <set name="e">
+  <vdl:new type="int" dbgname="e" waitfor="88004">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">e-86fc285e-6eb1-4be1-9713-35464e6a9d6d</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,645+0100 INFO  VariableScope looking at declaration <set name="f">
+  <vdl:new type="int" dbgname="f">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">f-33cc563b-8ff9-4e2f-914a-d6ae2e439dc5</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,645+0100 INFO  VariableScope thats the declaration for f
+2009-03-16 17:14:27,645+0100 INFO  VariableScope looking at declaration <set name="a">
+  <vdl:new type="int" dbgname="a" waitfor="88000">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">a-85e99a2a-c0b0-416e-92ae-99f45927aeb0</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,646+0100 INFO  VariableScope looking at declaration <set name="b">
+  <vdl:new type="int" dbgname="b" waitfor="88001">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,646+0100 INFO  VariableScope looking at declaration <set name="c">
+  <vdl:new type="int" dbgname="c" waitfor="88002">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">c-294f329e-31da-48ba-9397-aa207efbb25e</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,646+0100 INFO  VariableScope looking at declaration <set name="d">
+  <vdl:new type="int" dbgname="d" waitfor="88003">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">d-58d6073c-f463-4109-8fff-953e013f477a</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,646+0100 INFO  VariableScope looking at declaration <set name="e">
+  <vdl:new type="int" dbgname="e" waitfor="88004">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">e-86fc285e-6eb1-4be1-9713-35464e6a9d6d</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,647+0100 INFO  VariableScope looking at declaration <set name="f">
+  <vdl:new type="int" dbgname="f" waitfor="88005">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">f-33cc563b-8ff9-4e2f-914a-d6ae2e439dc5</vdl:parameter>
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,647+0100 INFO  VariableScope looking at declaration <set name="g">
+  <vdl:new type="int" dbgname="g">
+    <vdl:mapping descriptor="concurrent_mapper">
+      <vdl:parameter name="prefix">g-d317bc39-b730-4b9c-9070-3b5e3f770e89</vdl:parameter>
+      <vdl:parameter name="input" value="true" />
+    </vdl:mapping>
+  </vdl:new>
+</set>
+2009-03-16 17:14:27,647+0100 INFO  VariableScope thats the declaration for g
+2009-03-16 17:14:28,651+0100 INFO  unknown Using sites file: /Users/benc/work/cog/modules/swift/dist/swift-svn/bin/../etc/sites.xml
+2009-03-16 17:14:28,652+0100 INFO  unknown Using tc.data: ./tc.data
+2009-03-16 17:14:28,860+0100 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2009-03-16 17:14:29,412+0100 INFO  unknown Swift svn swift-r2522 (swift modified locally) cog-r2325
+
+2009-03-16 17:14:29,413+0100 INFO  unknown RUNID id=tag:benc@ci.uchicago.edu,2007:swift:run:20090316-1714-epspd514
+2009-03-16 17:14:29,441+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000001 type int value=8645.0 dataset=unnamed SwiftScript value (closed)
+2009-03-16 17:14:29,441+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000001 path=$
+2009-03-16 17:14:29,441+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000001 VALUE=8645
+2009-03-16 17:14:29,450+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000001
+2009-03-16 17:14:29,476+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002
+2009-03-16 17:14:29,477+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003
+2009-03-16 17:14:29,478+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004
+2009-03-16 17:14:29,480+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005
+2009-03-16 17:14:29,480+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006
+2009-03-16 17:14:29,481+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007
+2009-03-16 17:14:29,482+0100 INFO  New NEW id=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008
+2009-03-16 17:14:29,503+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int with no value at dataset=g (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int with no value at dataset=g (not closed)"
+2009-03-16 17:14:29,504+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int with no value at dataset=g (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int with no value at dataset=f (not closed)
+2009-03-16 17:14:29,504+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int with no value at dataset=f (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int with no value at dataset=f (not closed)"
+2009-03-16 17:14:29,505+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int with no value at dataset=d (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int with no value at dataset=c (not closed)
+2009-03-16 17:14:29,505+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int with no value at dataset=c (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int with no value at dataset=c (not closed)"
+2009-03-16 17:14:29,505+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int with no value at dataset=e (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int with no value at dataset=d (not closed)
+2009-03-16 17:14:29,505+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int with no value at dataset=d (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int with no value at dataset=d (not closed)"
+2009-03-16 17:14:29,505+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int with no value at dataset=c (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int with no value at dataset=b (not closed)
+2009-03-16 17:14:29,505+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int with no value at dataset=f (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int with no value at dataset=e (not closed)
+2009-03-16 17:14:29,504+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 type int with no value at dataset=a (not closed) to 8645
+2009-03-16 17:14:29,506+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 type int value=8645.0 dataset=a (closed)
+2009-03-16 17:14:29,506+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 path=$
+2009-03-16 17:14:29,506+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 VALUE=8645
+2009-03-16 17:14:29,505+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int with no value at dataset=b (not closed) to org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 type int with no value at dataset=a (not closed)
+2009-03-16 17:14:29,505+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int with no value at dataset=b (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int with no value at dataset=b (not closed)"
+2009-03-16 17:14:29,506+0100 INFO  AbstractDataNode Adding handle listener "F/org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int with no value at dataset=e (not closed)" to "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int with no value at dataset=e (not closed)"
+2009-03-16 17:14:29,508+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000002 filename=file://localhost/_concurrent/a-85e99a2a-c0b0-416e-92ae-99f45927aeb0-
+2009-03-16 17:14:29,508+0100 INFO  CloseDataset Partially closing 8645 for statement 88000
+2009-03-16 17:14:29,508+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,508+0100 INFO  CloseDataset var hash is 5892322
+2009-03-16 17:14:29,508+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int value=8645.0 dataset=b (closed)"
+2009-03-16 17:14:29,508+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,508+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 type int value=8645.0 dataset=b (closed)
+2009-03-16 17:14:29,508+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int with no value at dataset=c (not closed) to 8645
+2009-03-16 17:14:29,508+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 path=$
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 VALUE=8645
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000003 filename=file://localhost/_concurrent/b-50ccc97f-a5c6-4d9f-9302-44ef55fa51bc-
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int value=8645.0 dataset=c (closed)"
+2009-03-16 17:14:29,509+0100 INFO  CloseDataset Partially closing 8645 for statement 88001
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 type int value=8645.0 dataset=c (closed)
+2009-03-16 17:14:29,509+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 path=$
+2009-03-16 17:14:29,509+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int with no value at dataset=d (not closed) to 8645
+2009-03-16 17:14:29,509+0100 INFO  CloseDataset var hash is 15755363
+2009-03-16 17:14:29,509+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 VALUE=8645
+2009-03-16 17:14:29,509+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,510+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000004 filename=file://localhost/_concurrent/c-294f329e-31da-48ba-9397-aa207efbb25e-
+2009-03-16 17:14:29,510+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int value=8645.0 dataset=d (closed)"
+2009-03-16 17:14:29,511+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 type int value=8645.0 dataset=d (closed)
+2009-03-16 17:14:29,510+0100 INFO  CloseDataset Partially closing 8645 for statement 88002
+2009-03-16 17:14:29,511+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 path=$
+2009-03-16 17:14:29,511+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int with no value at dataset=e (not closed) to 8645
+2009-03-16 17:14:29,511+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,511+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 VALUE=8645
+2009-03-16 17:14:29,511+0100 INFO  CloseDataset var hash is 2915318
+2009-03-16 17:14:29,511+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000005 filename=file://localhost/_concurrent/d-58d6073c-f463-4109-8fff-953e013f477a-
+2009-03-16 17:14:29,511+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int value=8645.0 dataset=e (closed)"
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 type int value=8645.0 dataset=e (closed)
+2009-03-16 17:14:29,512+0100 INFO  CloseDataset Partially closing 8645 for statement 88003
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 path=$
+2009-03-16 17:14:29,512+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int with no value at dataset=f (not closed) to 8645
+2009-03-16 17:14:29,512+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 VALUE=8645
+2009-03-16 17:14:29,512+0100 INFO  CloseDataset var hash is 12581233
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000006 filename=file://localhost/_concurrent/e-86fc285e-6eb1-4be1-9713-35464e6a9d6d-
+2009-03-16 17:14:29,512+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,512+0100 INFO  CloseDataset Partially closing 8645 for statement 88004
+2009-03-16 17:14:29,512+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int value=8645.0 dataset=f (closed)"
+2009-03-16 17:14:29,513+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,513+0100 INFO  SetFieldValue Setting org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int with no value at dataset=g (not closed) to 8645
+2009-03-16 17:14:29,513+0100 INFO  CloseDataset var hash is 6280355
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 type int value=8645.0 dataset=f (closed)
+2009-03-16 17:14:29,513+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 path=$
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 VALUE=8645
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000007 filename=file://localhost/_concurrent/f-33cc563b-8ff9-4e2f-914a-d6ae2e439dc5-
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode Notifying listener "F/8645" about "org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int value=8645.0 dataset=g (closed)"
+2009-03-16 17:14:29,513+0100 INFO  CloseDataset Partially closing 8645 for statement 88005
+2009-03-16 17:14:29,513+0100 INFO  AbstractDataNode closed org.griphyn.vdl.mapping.RootDataNode identifier tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 type int value=8645.0 dataset=g (closed)
+2009-03-16 17:14:29,513+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,514+0100 INFO  AbstractDataNode ROOTPATH dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 path=$
+2009-03-16 17:14:29,514+0100 INFO  CloseDataset var hash is 9810083
+2009-03-16 17:14:29,514+0100 INFO  AbstractDataNode VALUE dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 VALUE=8645
+2009-03-16 17:14:29,514+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,514+0100 INFO  AbstractDataNode FILENAME dataset=tag:benc@ci.uchicago.edu,2008:swift:dataset:20090316-1714-kcptc6q7:720000000008 filename=file://localhost/_concurrent/g-d317bc39-b730-4b9c-9070-3b5e3f770e89-
+2009-03-16 17:14:29,514+0100 INFO  CloseDataset Partially closing 8645 for statement 88006
+2009-03-16 17:14:29,514+0100 WARN  trace SwiftScript trace: 8645
+2009-03-16 17:14:29,514+0100 INFO  CloseDataset var is 8645
+2009-03-16 17:14:29,515+0100 INFO  CloseDataset var hash is 13555910
+2009-03-16 17:14:29,515+0100 INFO  CloseDataset variable already closed - skipping partial close processing
+2009-03-16 17:14:29,525+0100 INFO  vdl:cleanups START cleanups=[]
+2009-03-16 17:14:29,529+0100 DEBUG Loader Swift finished with no errors

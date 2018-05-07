@@ -1,0 +1,35 @@
+MTCProv - a practical provenance query framework for many-task computing
+
+- Introduction
+
+MTCProv is a provenance management tool integrated to Swift given by the following components:
+
+1) A set of scripts for extracting provenance information from Swift's log files. The extracted data is imported into a relational database, currently PotgreSQL. where it can queried.
+
+2) A query interface for provenance with a built-in query language called SPQL (Structured Provenance Query Language). SPQL is similar to SQL except for not having FROM-clauses and join expressions on the WHERE-clause, which are automatically computed for the user. A number of functions and stored procedures that abstract common provenance query patterns are available both in SPQL and SQL.
+	
+In this section, we present the MTCProv data model for representing provenance of many-task scientific computations. This MTC provenance model is a compatible extension of the Open Provenance Model, in the sense that it is possible to export the data stored by MTCProv to an OPM-compliant graph. It addresses the characteristics of many-task computing, where concurrent component tasks are submitted to parallel and distributed computational resources.  Such resources are subject to failures, and are usually under high demand for executing tasks and transferring data. Science-level performance information, which describes the behavior of an experiment from the  point of view of the scientific domain, is critical for the management of such experiments (for instance, by determining how accurate the outcome of a scientific simulation was, and whether accuracy varies between execution environments). Recording the resource-level performance of such workloads can also assist scientists in managing the life cycle of their computational experiments. In designing MTCProv, we interacted with Swift users from multiple scientific domains, including protein science, and earth sciences, and social network analysis, to support them in designing, executing and analyzing their scientific computations with Swift. From these engagements, we identified the following requirements for MTCProv:
+
+* Gather producer-consumer relationships between data sets and processes. These relationships form the core of provenance information. They enable typical provenance queries to be performed, such as determining all processes and data sets that were involved in the production of a particular data set. This in general requires traversing a graph defined by these relationships. Users should be able, for instance, to check the usage of a given file by different many-task application runs.
+
+* Gather hierarchical relationships between data sets. Swift supports hierarchical data sets, such as arrays and structures. For instance, a user can map input files stored in a given directory to an array, and later process these files in parallel using a {\tt foreach} construct. Fine-grained recording of data set usage details should be supported, so that a user can trace, for instance, that an array was passed to a procedure, and that an individual array member was used by some sub-procedure. This is usually achieved by recording constructors and accessors of arrays as processes in a provenance trace.
+
+* Gather versioned information of the specifications of many-task scientific computations and of their component applications. As the specifications of many-task computations (e.g., Swift scripts), and their component applications (e.g., Swift leaf functions) can evolve over time, scientists can benefit from keeping track of which version they are using in a given run. In some cases, the scientist also acts as the developer of a component application, which can result in frequent component application version updates during a workflow lifecycle.
+
+* Allow users to enrich their provenance records with annotations. Annotations are usually specified as key-value pairs that can be used, for instance, to record resource-level and science-level performance, like input and output scientific parameters, and usage statistics from computational resources. Annotations are useful for extending the provenance data model when required information is not captured in the standard system data flow. For instance, many scientific applications use textual configuration files to specify the parameters of a simulation. Yet automated provenance management systems usually record only the consumption of the configuration file by the scientific application, but preserve no information about its content (which is what the scientist really needs to know).
+
+* Gather runtime information about component application executions. Systems like Swift support many diverse parallel and distributed environments. Depending on the available applications at each site and on job scheduling heuristics, a computational task can be executed on a local host, a high performance computing cluster, or a remote grid or cloud site. Scientists often can benefit from having access to details about these executions, such as where each job was executed, the amount of time a job had to wait on a scheduler's queue, the duration of its actual execution, its memory and processor consumption, and the volume and rate of file system and/or network IO operations.
+
+* Provide a usable and useful query interface for provenance information. While the relational model is ideal for many aspects to store provenance relationships, it is often cumbersome to write SQL queries that require joining the many relations required to implement the OPM. For provenance to become a standard part of the e-Science methodology, it must be easy for scientists to formulate queries and interpret their outputs. Queries can often be of exploratory nature \cite{white_exploratory_2009}, where provenance information is analyzed in many steps that refine previous query outputs. Improving usability is usually achievable through the specification of a provenance query language, or by making available a set of stored procedures that abstract common provenance queries. \emph{In this work we propose a query interface which both extends and simplifies standard SQL by automating join specifications and abstracting common provenance query patterns into built-in functions}.
+
+Tutorial
+
+The file etc/provenance.config should be edited to define the local configuration. The location of the directory containing the log files should be defined in the variable LOGREPO. For instance:
+
+export LOGREPO=~/swift-logs/
+
+The command used for connecting to the database should be defined in the variable SQLCMD. For example, to connect to CI's PostgreSQL? database:
+
+export SQLCMD="psql -h db.ci.uchicago.edu -U provdb provdb"
+
+The script ./swift-prov-import-all-logs will import provenance information from the log files in $LOGREPO into the database. The command line option -rebuild will initialize the database before importing provenance information. The file prov-init.sql contains the database schema.

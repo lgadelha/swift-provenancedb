@@ -1,0 +1,77 @@
+#! /bin/sh
+
+echo $(date): $* >./tag.log
+
+database=${TAGDB:-provdb}
+
+usage()
+{
+  echo $0: usage:
+  cat <<END
+    -m|--multiple   allow multiple tags with the same name
+    -h|-?|?|--help  print this help
+END
+}
+
+multiple=false
+
+while [ $# -gt 0 ]; do
+  case $1 in
+    -u|--user)     user=$2;       shift 2 ;;
+    -p|--password) password=$2;   shift 2 ;;
+    -d|--database) database=$2; shift 2 ;;
+    -m|--multiple) multiple=true; shift 1 ;;
+    -h|-?|--help|-*|--*) usage; exit  ;;
+    *) break ;;
+  esac
+done
+
+# Authenticate the user
+
+dbpass=$(grep -w "^$user " users | awk '{print $2}')
+
+echo user=$user password=$password dbpass=$dbpass >>./tag.log
+
+if [ _$dbpass != _$password ]; then
+  echo ERROR: authentication failed.
+  exit 1
+fi
+
+object=$1
+shift
+
+SQLCMD="psql -U provdb -h swift.rcc.uchicago.edu $database"
+
+$SQLCMD -c "insert into ds (id) values ('$object');"
+
+for anno in _owner=$user _group=TestGroup _created_on="$(date)" _modified_on="$(date)" _permissions=777 "$@"; do
+  name=$(echo "$anno" | awk -F= '{print $1}')
+  value=$(echo "$anno" | awk -F= '{print $2}')
+  echo anno=$anno name=$name value="$value"
+  if [ $multiple = false ]; then
+    $SQLCMD -c "
+    DO
+    \$\$
+    BEGIN
+      IF EXISTS ( SELECT 1 FROM annot_dataset_text WHERE dataset_id = '$object' and name = '$name' ) THEN
+        UPDATE annot_dataset_text SET value = '$value' WHERE dataset_id = '$object' and name = '$name' ;
+      ELSE
+        INSERT INTO annot_dataset_text (dataset_id, name, value) VALUES ('$object', '$name', '$value') ;
+      END IF;
+    END;
+    \$\$"
+  else
+    $SQLCMD -c "insert into annot_dataset_text (dataset_id, name, value) values ('$object', '$name', '$value');"
+  fi
+done
+
+exit
+
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'owner', 'wilde');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'group', 'cmts-cyber');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'create-date', '2013.0123.23:07:29.123');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'type', 'pdb');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'state', 'unverified');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'note','Initial structure prediction from loop model. mw');
+
+END

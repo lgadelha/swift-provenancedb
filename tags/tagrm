@@ -1,0 +1,54 @@
+#! /bin/sh
+
+usage()
+{
+  echo $0: usage:
+  cat <<END
+    -m|--multiple   allow multiple tags with the same name
+    -h|-?|?|--help  print this help
+END
+}
+
+TAGDB=${TAGDB:-provdb}
+SQLCMD="psql -U provdb -h swift.rcc.uchicago.edu $TAGDB"
+
+object=$1
+shift
+
+if [ $# = 0 ]; then
+  echo DELETING all tags for object = $object
+  $SQLCMD -c "DELETE FROM ds WHERE (id = '$object');"
+  $SQLCMD -c "DELETE FROM annot_dataset_text WHERE (dataset_id = '$object');"
+else
+  for name in "$@"; do
+    echo DELETING name=$name 
+    $SQLCMD -c "DELETE FROM annot_dataset_text WHERE (dataset_id = '$object' AND name = '$name');"
+  done
+fi
+
+exit
+
+
+# FIXME: insert arg handling as needed:
+
+multiple=false
+while [ $# -gt 0 ]; do
+  case $1 in
+    -m|--multiple)  multiple=true; shift 1 ;;
+    -h|-?|--help|-*|--*) usage; exit  ;;
+    *) break ;;
+  esac
+  # shift 2 
+done
+echo multiple=$multiple
+
+exit
+
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'owner', 'wilde');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'group', 'cmts-cyber');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'create-date', '2013.0123.23:07:29.123');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'type', 'pdb');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'state', 'unverified');
+insert into annot_dataset_text (dataset_id, name, value) values ('/d1/d2/f1', 'note','Initial structure prediction from loop model. mw');
+
+END

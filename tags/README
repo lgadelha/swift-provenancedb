@@ -1,0 +1,66 @@
+Tagging Model
+
+Catalogs
+  ObjectTypes
+    RequiredTags
+      none | tag1, ..., tagN
+    AllowedTags
+      any | tag1, ..., tagN
+    SystemTags
+      _user
+      _group
+      _permission
+      _create_date
+      _modify_date
+    Objects
+      Tags
+
+
+Groups
+  Users
+
+
+
+
+Type Examples
+
+
+Dataset
+  type=dataset
+  name
+  create_date
+  location
+  nfiles
+  size
+
+Script
+  type=script
+  name
+  version
+  source
+  repo_url
+
+Application
+  type=app
+  name
+  version
+  source
+
+CMTSRun
+  type=run
+  start_date
+  id
+  script
+
+
+dataset-required name create_date location nfiles size
+dataset-allowed  member
+
+script-required name version source repo_url
+script-required name version source repo_url
+
+app-required name version source
+app-required name version source
+
+run-required start_date id script
+run-allowed  start_date id script

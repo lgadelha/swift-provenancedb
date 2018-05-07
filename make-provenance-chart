@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# now generate dot for this
+
+rm graph.dot
+
+echo "digraph provenance {" >> graph.dot
+
+while read dataset filename ; do
+  echo "\"$dataset\" -> \"$filename\" [label=\"filename\"]" >> graph.dot
+  echo "\"$filename\" [label=\"$(basename $filename)\"]" >> graph.dot
+done < dataset-filenames.txt
+
+rm -f a.tmp
+while read a b ; do
+  echo "$b -> $a [color=blue, label=\"part of\"]" >> a.tmp
+done < tie-containers.txt
+cat a.tmp | sort | uniq >> graph.dot
+
+while read thread direction dataset var rest; do
+if [ "$direction" == "input" ]; then
+  echo "$dataset -> \"$thread\" [color=red, label=\"$var\"]" >> graph.dot
+else
+  echo "\"$thread\" -> \"$dataset\" [color=red, label=\"$var\"]" >> graph.dot
+fi
+done < tie-data-invocs.txt
+
+## 1197561452.012 0.531999826431274 0-0 END_SUCCESS cat
+#while read time duration thread status name rest; do
+#  echo "\"$thread\" [label=\"$name ($thread)\"]" >> graph.dot
+#done < execute.event
+while read thread name; do 
+  echo "\"$thread\" [label=\"$name ($thread)\"]" >> graph.dot
+done < invocation-procedure-names.txt
+
+
+# 1197561452.559 0.384000062942505 cat-o0er6gli JOB_END 0-2 localhost
+while read time duration jobid status thread site rest; do
+  echo "\"$thread\" -> \"$jobid\" [color=green, label=\"performed by\"]" >> graph.dot
+  echo "\"$jobid\"" >> graph.dot
+#   echo "\"$jobid\" -> \"$site\" [label=\"runs on\", color=cyan]" >> graph.dot
+done < execute2.event
+
+echo "}" >> graph.dot
+
+dot graph.dot -Tpng -ograph.png
+

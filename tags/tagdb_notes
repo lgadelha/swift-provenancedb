@@ -1,0 +1,46 @@
+tag ds3 name1=1 name2=output key3=1234
+ttag /d1/d2/f5 state=published
+
+
+tag(<objectid>, <list of nvps>)
+locate(
+
+Scientific Database as a Service
+
+SDaS
+
+
+  908  ls ~wilde/public_html/
+  909  cp ~wilde/public_html/tlocate .
+  910  cp ~wilde/public_html/trm .
+  911  cp ~wilde/public_html/ttag .
+  912  cp ~wilde/public_html/tagrm .
+  913  vi /home/lgadelha/.pgpass 
+  914  more ttag 
+  915  vi /home/lgadelha/.pgpass 
+  916  more tagrm 
+  917  vi /home/lgadelha/.pgpass 
+  918  ls
+  919  export TAGDB=tags
+  920  ./tlocate 
+  921  ./ttag ds3 name1=1 name2=output key3=1234
+  922  ./tlocate 
+  923  ./tlocate name=l
+  924  ./tlocate name=name1
+  925  ./tlocate name1=1
+  926  export TAGDB=provdb
+  927  ./tlocate 
+  928  ./tlocate bead=px
+  929  ./tlocate bead=xy
+  930  ./ttag /d1/d2/f5 state=published
+  931  ./tlocate bead=xy
+  932  more tlocate 
+  933  more tlocate 
+  934  ./tlocate '((bead=xy) or (bead=an))'
+  935  more tlocate 
+  936  ./tlocate '(((bead=xy) or (bead=an))) and (owner=jgrime)'
+  937  more tlocate 
+  938  ../tlo
+  939  ./tlocate 
+  940  ./tlocate 
+

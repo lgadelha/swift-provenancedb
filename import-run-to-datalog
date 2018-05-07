@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# this should be the main driver script which can be run right after a
+# workflow has finished and will do everything necessary to import all
+# of the provenance information into the SQL provenance database.
+
+# invoke with:   import-run-to-sql [logfile]
+# where [logfile] is a full path *not relative* to the log file
+# with kickstart records expected to be in the same directory as the
+# log file.
+
+version=$version prov-to-datalog.sh $1
+

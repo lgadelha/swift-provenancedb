@@ -1,0 +1,8 @@
+New tables for storing prospective provenance.
+Changed table names to match paper/docs.
+--This line, and those below, will be ignored--
+
+M    pql_functions.sql
+D    compare_run.sh
+M    prov-init.sql
+M    prov-to-sql.sh

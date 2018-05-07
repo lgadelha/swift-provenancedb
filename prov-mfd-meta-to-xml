@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# take an AIR scanheader dump and produce and XML structured version of
+# the information without changing the data
+
+# pass the dataset ID as $1
+# the actual metadata is hardcoded (in the four fmri examples its
+# the same for each image)
+
+echo "<headermeta>"
+echo "  <dataset>$1</dataset>"
+
+cat mfd/prov-fmri-only-meta | grep = | sed 's%[ /_]%%g' | sed 's/=/ /' | \
+  while read name value; do
+    echo "  <$name>$value</$name>"
+  done
+
+
+echo "</headermeta>"
+

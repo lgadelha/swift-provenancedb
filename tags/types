@@ -1,0 +1,14 @@
+dataset-required name create_date location nfiles size
+dataset-allowed	 member*
+
+script-required name version source repo_url
+script-allowed  none
+
+app-required name version source
+app-required none
+
+run-required start_date id script
+run-allowed  restarts
+
+unknown-required none
+unknown-allowed  any

@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# assumes that provenance directory is on path (to get the commands)
+# and that an appropriate configuration for sqlite3 exists.
+
+# the latter could (and should) be automated to get logs from this
+# test directory
+
+echo starting provenance tests
+
+# delete the db
+
+rm -f provdb
+
+if [ -f "provdb" ]; then
+  echo FAIL - provdb should have been deleted but still exists
+  exit 1
+fi
+
+# import
+
+swift-prov-import-all-logs rebuild
+
+if [ "$?" != "0" ]; then
+  echo FAIL - import of all logs returned non-zero
+  exit 2
+fi
+
+if ! [ -f "provdb" ]; then
+  echo FAIL - provdb should now exist but does not
+  exit 3
+fi
+
+echo checking row counts:
+
+cat counts.sql | sqlite3 provdb > counts.out
+diff -q counts.out counts.out.expected
+if [ "$?" -ne "0" ]; then
+  echo FAIL - row counts differ
+  exit 4
+fi
+
+echo ending provenance tests without failures
+exit 0

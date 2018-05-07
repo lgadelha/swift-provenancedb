@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export CLASSPATH=/Users/benc/work/cog/modules/swift/lib/xbean.jar
+export CLASSPATH=/Users/benc/work/cog/modules/swift/lib/jsr173_1.0_api.jar:$CLASSPATH
+
+java org.apache.xmlbeans.impl.tool.SchemaCompiler v1.01.a.xsd
+
+export CLASSPATH=./xmltypes.jar:$CLASSPATH
+
+javac V.java
+
+export CLASSPATH=.:$CLASSPATH
+
+java V ../tests/provenancedb/opm.xml
+

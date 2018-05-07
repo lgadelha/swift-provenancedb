@@ -1,0 +1,4 @@
+BUGS
+
+FAILS: ./locate '(owner=oosode)or(owner=jgrime)'
+WORKS: ./locate '(owner=oosode) or (owner=jgrime)'

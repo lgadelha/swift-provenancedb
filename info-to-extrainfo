@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# must have $EXECUTE2PREFIX appropriately by containing script
+
+while read t d id rest; do
+    echo processing wrapper file for job $id >&2
+    record=$(find ${IDIR} -name ${id}-info)
+    
+    globalid=$EXECUTE2PREFIX$id
+    
+    if [ "X$record" != "X" ] && [ -f $record ] ; then
+	
+	grep '^EXTRAINFO=' $record | sed "s/^EXTRAINFO=\(.*\)$/$globalid \1/"
+	
+    else
+	echo no wrapper log for $id >&2
+    fi
+    
+done < execute2.event
