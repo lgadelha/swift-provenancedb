@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.7">
+<meta name="generator" content="AsciiDoc 9.0.5">
 <title>Swift Provenance Database</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -86,9 +86,15 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
+}
+pre {
+  white-space: pre-wrap;
 }
 
 #author {
@@ -218,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -414,12 +420,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -434,7 +434,7 @@ thead, p.table.header {
 p.table {
   margin-top: 0;
 }
-/* Because the table frame attribute is overriden by CSS in most browsers. */
+/* Because the table frame attribute is overridden by CSS in most browsers. */
 div.tableblock > table[frame="void"] {
   border-style: none;
 }
@@ -452,12 +452,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -538,6 +532,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -924,7 +920,7 @@ psql -f pql-functions.sql provdb</pre>
 <div class="content monospaced">
 <pre>export SQLCMD="psql -h db.ci.uchicago.edu -U provdb provdb"</pre>
 </div></div>
-<div class="paragraph"><p>The script <span class="monospaced">./swift-prov-import-all-logs</span> will import provenance information from the log files in <span class="monospaced">$LOGREPO</span> into the database. The command line option <span class="monospaced">-rebuild</span> will initialize the database before importing provenance information.</p></div>
+<div class="paragraph"><p>The script <span class="monospaced">./swift-prov-import-all-logs</span> will import provenance information from the log files in <span class="monospaced">$LOGREPO</span> into the database. One can use <span class="monospaced">./swift-prov-import-all-logs rebuild</span> to reinitialize database before importing provenance information.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_swift_configuration">Swift Configuration</h3>
@@ -1000,11 +996,22 @@ FROM   script_run;
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_references">References</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Gadelha Jr., L. M. R., Clifford, B., Mattoso, M., Wilde, M., &amp; Foster, I. (2011). Provenance management in Swift. Future Generation Computer Systems, 27(6), 775–780. <a href="https://doi.org/10.1016/j.future.2010.05.003">https://doi.org/10.1016/j.future.2010.05.003</a></p></div>
+<div class="paragraph"><p>Gadelha, L. M. R., Wilde, M., Mattoso, M., &amp; Foster, I. (2012). MTCProv: a practical provenance query framework for many-task scientific computing. Distributed and Parallel Databases, 30(5–6), 351–370. <a href="https://doi.org/10.1007/s10619-012-7104-4">https://doi.org/10.1007/s10619-012-7104-4</a></p></div>
+<div class="paragraph"><p>Gadelha, L. M. R., Wilde, M., Mattoso, M., &amp; Foster, I. (2013). Provenance traces of the Swift parallel scripting system. Proceedings of the Joint EDBT/ICDT 2013 Workshops on - EDBT ’13, 325. <a href="https://doi.org/10.1145/2457317.2457374">https://doi.org/10.1145/2457317.2457374</a></p></div>
+<div class="paragraph"><p>Mondelli, M. L., de Souza, M. T., Ocaña, K., Vasconcelos, A. T. R. de, &amp; Gadelha Jr, L. M. R. (2016). HPSW-Prof: A Provenance-Based Framework for Profiling High Performance Scientific Workflows. Proc. of Satellite Events of the 31st Brazilian Symposium on Databases (SBBD 2016), 117–122. <a href="http://sbbd2016.fpc.ufba.br/sbbd2016/demos/PAPER2.pdf">http://sbbd2016.fpc.ufba.br/sbbd2016/demos/PAPER2.pdf</a></p></div>
+<div class="paragraph"><p>Mondelli, M. L., Magalhães, T., Loss, G., Wilde, M., Foster, I., Mattoso, M., Katz, D., Barbosa, H., de Vasconcelos, A. T. R., Ocaña, K., &amp; Gadelha, L. M. R. (2018). BioWorkbench: a high-performance framework for managing and analyzing bioinformatics experiments. PeerJ, 6, e5551. <a href="https://doi.org/10.7717/peerj.5551">https://doi.org/10.7717/peerj.5551</a></p></div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-06-08 07:07:18 BRT
+Last updated
+ 2021-01-29 17:22:44 CET
 </div>
 </div>
 </body>
